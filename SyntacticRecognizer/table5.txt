@@ -1,0 +1,21 @@
+S_type_1
+S_<I>_18 S_a_12 S_b_10 S_c_9 S_<F>_4
+S_<T>_5 S_record_14 S_int_16
+S_<I>_18 S_a_12 S_b_10 S_c_9 S_<F>_6
+S_#_7
+R_<F>_3 S_;_3
+R_<F>_5
+R_<S>_3
+S_:_11
+R_<I>_1
+R_<I>_1
+S_<T>_13 S_record_14 S_int_16
+R_<I>_1
+R_<G>_3 S_;_15
+S_<I>_8 S_a_12 S_b_10 S_<G>_17 S_c_9
+S_<I>_8 S_a_12 S_b_10 S_<G>_19 S_c_9
+R_<T>_1
+S_end_20
+S_=_2
+R_<G>_5
+R_<T>_3

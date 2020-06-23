@@ -1,0 +1,19 @@
+S_[Integer]_9 S_<F>_14 S_<E>_3 S_[Identifier]_10 S_<T>_16 S_(_12 S_[Hexadecimal]_7 S_-_11 S_[FloatPointNumber]_6 S_[Binary]_8
+R_<E>_3 S_*_18
+R_<T>_3
+S_[EndOfInput]_5 S_+_4
+S_[Integer]_9 S_<F>_14 S_[Identifier]_10 S_<T>_1 S_(_12 S_[Hexadecimal]_7 S_-_11 S_[FloatPointNumber]_6 S_[Binary]_8
+R_<S>_2
+R_<F>_1
+R_<F>_1
+R_<F>_1
+R_<F>_1
+R_<F>_1
+S_[Integer]_9 S_<F>_13 S_[Identifier]_10 S_(_12 S_[Hexadecimal]_7 S_-_11 S_[Binary]_8 S_[FloatPointNumber]_6
+S_[Integer]_9 S_<F>_14 S_<E>_15 S_[Identifier]_10 S_<T>_16 S_(_12 S_[Hexadecimal]_7 S_-_11 S_[FloatPointNumber]_6 S_[Binary]_8
+R_<F>_2
+R_<T>_1
+S_)_17 S_+_4
+R_<E>_1 S_*_18
+R_<F>_3
+S_[Integer]_9 S_<F>_2 S_[Identifier]_10 S_(_12 S_[Hexadecimal]_7 S_-_11 S_[Binary]_8 S_[FloatPointNumber]_6

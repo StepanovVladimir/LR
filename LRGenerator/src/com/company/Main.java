@@ -79,7 +79,7 @@ public class Main
 
             if (grammar.isEmpty())
             {
-                rule.right.add("#");
+                rule.right.add("[EndOfInput]");
             }
 
             grammar.add(rule);

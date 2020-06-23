@@ -1,0 +1,10 @@
+S_real_1
+S_A_8 S_B_7 S_C_6 S_<idlist>_3 S_<id>_9
+S_A_8 S_B_7 S_C_6 S_<id>_4
+S_#_5 S_,_2
+R_<idlist>_3
+R_<S>_3
+R_<id>_1
+R_<id>_1
+R_<id>_1
+R_<idlist>_1
