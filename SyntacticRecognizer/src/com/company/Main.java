@@ -1,6 +1,5 @@
 package com.company;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -26,6 +25,10 @@ public class Main
 
             while (!input.isEmpty())
             {
+                if (input.get(0).value.equals("main"))
+                {
+                    input.get(0).tokentype = TokenType.KeywordIf;
+                }
                 Row row = table.get(statesStack.peek());
                 Token token = input.get(0);
                 if (row.transitions.containsKey(token.value))

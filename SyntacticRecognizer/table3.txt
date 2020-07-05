@@ -1,4 +1,4 @@
 R_<S>_0 S_<S>_1
-S_a_2 S_#_3
+S_a_2 S_[EndOfInput]_3
 R_<S>_2
 R_<Z>_2
