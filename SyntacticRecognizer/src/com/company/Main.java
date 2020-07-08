@@ -5,10 +5,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.Stack;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Main
@@ -23,18 +20,23 @@ public class Main
             Stack<Integer> statesStack = new Stack<>();
             statesStack.push(0);
 
+            Set<String> possibleChs = new TreeSet<>();
+
             while (!input.isEmpty())
             {
-                if (input.get(0).value.equals("main"))
-                {
-                    input.get(0).tokentype = TokenType.KeywordIf;
-                }
                 Row row = table.get(statesStack.peek());
                 Token token = input.get(0);
                 if (row.transitions.containsKey(token.value))
                 {
                     statesStack.push(row.transitions.get(token.value));
+
+                    if (!isNontermChar(token.value))
+                    {
+                        possibleChs.clear();
+                    }
+
                     input.remove(0);
+
                     if (input.isEmpty())
                     {
                         System.out.println("Ok");
@@ -43,7 +45,14 @@ public class Main
                 else if (row.transitions.containsKey("[" + token.tokentype.toString() + "]"))
                 {
                     statesStack.push(row.transitions.get("[" + token.tokentype.toString() + "]"));
+
+                    if (!isNontermChar(token.value))
+                    {
+                        possibleChs.clear();
+                    }
+
                     input.remove(0);
+
                     if (input.isEmpty())
                     {
                         System.out.println("Ok");
@@ -53,6 +62,15 @@ public class Main
                 {
                     Token coagulation = new Token(TokenType.String, row.coagulation.ch, token.line, token.pos);
                     input.add(0, coagulation);
+
+                    for (String ch : row.transitions.keySet())
+                    {
+                        if (!isNontermChar(ch))
+                        {
+                            possibleChs.add(ch);
+                        }
+                    }
+
                     for (int i = 0; i < row.coagulation.count; i++)
                     {
                         statesStack.pop();
@@ -63,7 +81,8 @@ public class Main
                     System.out.println("Ошибка в " + token.line + ":" + token.pos);
                     Set<String> keySet = row.transitions.keySet();
                     keySet.removeIf(Main::isNontermChar);
-                    System.out.println("Ожидалось: " + keySet);
+                    possibleChs.addAll(keySet);
+                    System.out.println("Ожидалось: " + possibleChs);
                     System.out.println("Встретился: " + token.value);
                     break;
                 }

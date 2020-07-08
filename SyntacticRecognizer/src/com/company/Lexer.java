@@ -36,8 +36,15 @@ public class Lexer {
         this.keywords.put("string", TokenType.KeywordString);
         this.keywords.put("hex", TokenType.KeywordHex);
         this.keywords.put("binary", TokenType.KeywordBinary);
+        this.keywords.put("float", TokenType.KeywordFloat);
         this.keywords.put("while", TokenType.KeywordWhile);
         this.keywords.put("return", TokenType.KeywordReturn);
+        this.keywords.put("void", TokenType.Void);
+        this.keywords.put("bool", TokenType.Bool);
+        this.keywords.put("true", TokenType.True);
+        this.keywords.put("false", TokenType.False);
+        this.keywords.put("main", TokenType.Main);
+        this.keywords.put("char", TokenType.KeywordChar);
     }
 
     public Token getToken() {
@@ -60,6 +67,8 @@ public class Lexer {
             case '"': return string(this.chr, line, pos);
             case '{': getNextChar(); return new Token(TokenType.Begin, "{", line, pos);
             case '}': getNextChar(); return new Token(TokenType.End, "}", line, pos);
+            case '[': getNextChar(); return new Token(TokenType.BeginBracket, "[", line, pos);
+            case ']': getNextChar(); return new Token(TokenType.EndBracket, "]", line, pos);
             case '(': getNextChar(); return new Token(TokenType.LeftParentheses, "(", line, pos);
             case ')': getNextChar(); return new Token(TokenType.RightParentheses, ")", line, pos);
             case '+': getNextChar(); return new Token(TokenType.Plus, "+", line, pos);
@@ -85,7 +94,7 @@ public class Lexer {
         }
     }
 
-    private void error(int line, int pos, String msg) {
+    static void error(int line, int pos, String msg) {
         if (line > 0 && pos > 0) {
             System.out.printf("%s in line %d, pos %d\n", msg, line, pos);
         } else {
@@ -99,19 +108,33 @@ public class Lexer {
             getNextChar();
             if (ifyes == TokenType.Equal){
                 return new Token(ifyes, "=" + expect, line, pos);
-            } if (ifyes == TokenType.LessEqual) {
+            }  if (ifyes == TokenType.LessEqual) {
                 return new Token(ifyes, "<" + expect, line, pos);
             } if (ifyes == TokenType.GreaterEqual) {
                 return new Token(ifyes, ">" + expect, line, pos);
+            } if (ifyes == TokenType.And) {
+                return new Token(ifyes, "&&", line, pos);
+            } if (ifyes == TokenType.Or) {
+                return new Token(ifyes, "||" + expect, line, pos);
             } if (ifyes == TokenType.NotEqual) {
                 return new Token(ifyes, "!" + expect, line, pos);
             }
             return new Token(ifyes, "", line, pos);
         }
-        if (ifno == TokenType.EndOfInput) {
-            return new Token(TokenType.Error, String.valueOf(expect), line, pos);
-        }
-        return new Token(ifno, String.valueOf(expect), line, pos);
+            if (ifno == TokenType.EndOfInput) {
+                return new Token(TokenType.Error, String.valueOf(expect), line, pos);
+            }
+            if (ifno == TokenType.Assign) {
+                return new Token(ifno, "=", line, pos);
+            }
+            if (ifno == TokenType.Less) {
+                return new Token(ifno, "<", line, pos);
+            } if (ifno == TokenType.Greater) {
+                return new Token(ifno, ">", line, pos);
+            } if (ifno == TokenType.Not) {
+                return new Token(ifno, "!", line, pos);
+            }
+            return new Token(ifno, "", line, pos);
     }
 
     private Token string(char start, int line, int pos) {
@@ -154,7 +177,7 @@ public class Lexer {
         boolean is_number = true;
         StringBuilder text = new StringBuilder();
 
-        while (Character.isAlphabetic(this.chr) || Character.isDigit(this.chr) || Character.toString(this.chr).matches("[$:?@#'.^+-]")) {
+        while (Character.isAlphabetic(this.chr) || Character.isDigit(this.chr) || Character.toString(this.chr).matches("[$:?@#'.^]")) {
             text.append(this.chr);
             if (!Character.isDigit(this.chr)) {
                 is_number = false;

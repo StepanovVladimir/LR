@@ -4,11 +4,14 @@
 <Func> - <FuncType> <FuncName> ( <Args> ) { <Statements> }
 <FuncType> - <Type>
 <FuncType> - void
-<Type> - integer
-<Type> - bool
-<Type> - string
-<Type> - hex
-<Type> - binary
+<Type> - integer <Arr>
+<Type> - bool <Arr>
+<Type> - string <Arr>
+<Type> - hex <Arr>
+<Type> - binary <Arr>
+<Type> - float <Arr>
+<Arr> - [ <Expression> ] <Arr>
+<Arr> - @
 <FuncName> - [Identifier]
 <FuncName> - main
 <Args> - <Type> [Identifier] <CommaArgs>
@@ -25,15 +28,15 @@
 <Statement> - [Identifier] ( <Expressions> ) ;
 <Statement> - <Type> [Identifier] ;
 <Statement> - <Type> [Identifier] = <Expression> ;
-<Statement> - [Identifier] = <Expression> ;
+<Statement> - [Identifier] <Arr> = <Expression> ;
 <Statement> - return <Expression> ;
 <Statement> - return ;
 <Else> - else <Statement>
 <Else> - @
 <Expression> - <Expression> <BinaryOperation> <Expression>
 <Expression> - read ( )
-<Expression> - [Identifier] ( <Expressions> )
-<Expression> - [Identifier]
+<Expression> - [Identifier] ( <Expressions> ) <Arr>
+<Expression> - [Identifier] <Arr>
 <Expression> - [Integer]
 <Expression> - [Binary]
 <Expression> - [Hexadecimal]
@@ -42,7 +45,7 @@
 <Expression> - false
 <Expression> - ! <Expression>
 <Expression> - - <Expression>
-<Expression> - ( Expression )
+<Expression> - ( <Expression> )
 <Expressions> - <Expression> <CommaExpressions>
 <Expressions> - @
 <CommaExpressions> - , <Expression> <CommaExpressions>
