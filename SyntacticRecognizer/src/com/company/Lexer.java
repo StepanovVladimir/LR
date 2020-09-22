@@ -32,7 +32,7 @@ public class Lexer {
         this.keywords.put("else", TokenType.KeywordElse);
         this.keywords.put("print", TokenType.KeywordPrint);
         this.keywords.put("read", TokenType.KeywordRead);
-        this.keywords.put("integer", TokenType.KeywordInteger);
+        this.keywords.put("int", TokenType.KeywordInteger);
         this.keywords.put("string", TokenType.KeywordString);
         this.keywords.put("hex", TokenType.KeywordHex);
         this.keywords.put("binary", TokenType.KeywordBinary);
@@ -77,6 +77,7 @@ public class Lexer {
             case '%': getNextChar(); return new Token(TokenType.Mod, "%", line, pos);
             case ';': getNextChar(); return new Token(TokenType.Semicolon, ";", line, pos);
             case ',': getNextChar(); return new Token(TokenType.Comma, ",", line, pos);
+            case '.': getNextChar(); return new Token(TokenType.Comma, ".", line, pos);
             default: return identifier_or_integer(line, pos);
         }
     }
@@ -115,26 +116,26 @@ public class Lexer {
             } if (ifyes == TokenType.And) {
                 return new Token(ifyes, "&&", line, pos);
             } if (ifyes == TokenType.Or) {
-                return new Token(ifyes, "||" + expect, line, pos);
+                return new Token(ifyes, "||", line, pos);
             } if (ifyes == TokenType.NotEqual) {
                 return new Token(ifyes, "!" + expect, line, pos);
             }
             return new Token(ifyes, "", line, pos);
         }
-            if (ifno == TokenType.EndOfInput) {
-                return new Token(TokenType.Error, String.valueOf(expect), line, pos);
-            }
-            if (ifno == TokenType.Assign) {
-                return new Token(ifno, "=", line, pos);
-            }
-            if (ifno == TokenType.Less) {
-                return new Token(ifno, "<", line, pos);
-            } if (ifno == TokenType.Greater) {
-                return new Token(ifno, ">", line, pos);
-            } if (ifno == TokenType.Not) {
-                return new Token(ifno, "!", line, pos);
-            }
-            return new Token(ifno, "", line, pos);
+        if (ifno == TokenType.EndOfInput) {
+            return new Token(TokenType.Error, String.valueOf(expect), line, pos);
+        }
+        if (ifno == TokenType.Assign) {
+            return new Token(ifno, "=", line, pos);
+        }
+        if (ifno == TokenType.Less) {
+            return new Token(ifno, "<", line, pos);
+        } if (ifno == TokenType.Greater) {
+            return new Token(ifno, ">", line, pos);
+        } if (ifno == TokenType.Not) {
+            return new Token(ifno, "!", line, pos);
+        }
+        return new Token(ifno, "", line, pos);
     }
 
     private Token string(char start, int line, int pos) {
@@ -210,6 +211,10 @@ public class Lexer {
                 return new Token(TokenType.Error, text.toString(), line, pos);
             }
             return new Token(TokenType.Integer, text.toString(), line, pos);
+        }
+
+        if (text.toString().matches("^'.'$")){
+            return new Token(TokenType.Char, text.toString(), line, pos);
         }
 
         if (this.keywords.containsKey(text.toString())) {

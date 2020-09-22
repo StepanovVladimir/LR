@@ -2,7 +2,7 @@ S_type_1
 S_<I>_18 S_a_12 S_b_10 S_c_9 S_<F>_4
 S_<T>_5 S_record_14 S_int_16
 S_<I>_18 S_a_12 S_b_10 S_c_9 S_<F>_6
-S_#_7
+S_[EndOfInput]_7
 R_<F>_3 S_;_3
 R_<F>_5
 R_<S>_3

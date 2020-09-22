@@ -1,19 +1,17 @@
 <Goal> - <Funcs>
 <Funcs> - <Func> <Funcs>
 <Funcs> - @
-<Func> - <FuncType> <FuncName> ( <Args> ) { <Statements> }
+<Func> - <FuncType> [Identifier] ( <Args> ) { <Statements> }
+<Func> - void main ( ) { <Statements> }
 <FuncType> - <Type>
 <FuncType> - void
-<Type> - integer <Arr>
+<Type> - int <Arr>
 <Type> - bool <Arr>
+<Type> - char <Arr>
 <Type> - string <Arr>
-<Type> - hex <Arr>
-<Type> - binary <Arr>
 <Type> - float <Arr>
-<Arr> - [ <Expression> ] <Arr>
+<Arr> - [ <IntExpression> ] <Arr>
 <Arr> - @
-<FuncName> - [Identifier]
-<FuncName> - main
 <Args> - <Type> [Identifier] <CommaArgs>
 <Args> - @
 <CommaArgs> - , <Type> [Identifier] <CommaArgs>
@@ -21,9 +19,9 @@
 <Statements> - <Statement> <Statements>
 <Statements> - @
 <Statement> - { <Statements> }
-<Statement> - if ( <Expression> ) <Statement> <Else>
-<Statement> - while ( <Expression> ) <Statement>
-<Statement> - print ( <Expression> ) ;
+<Statement> - if ( <BoolExpression> ) <Statement> <Else>
+<Statement> - while ( <BoolExpression> ) <Statement>
+<Statement> - print ( <CharExpression> ) ;
 <Statement> - read ( ) ;
 <Statement> - [Identifier] ( <Expressions> ) ;
 <Statement> - <Type> [Identifier] ;
@@ -33,33 +31,91 @@
 <Statement> - return ;
 <Else> - else <Statement>
 <Else> - @
-<Expression> - <Expression> <BinaryOperation> <Expression>
+<Expression> - <VarExpression>
+<Expression> - [Char]
 <Expression> - read ( )
-<Expression> - [Identifier] ( <Expressions> ) <Arr>
-<Expression> - [Identifier] <Arr>
-<Expression> - [Integer]
-<Expression> - [Binary]
-<Expression> - [Hexadecimal]
-<Expression> - [FloatPointNumber]
-<Expression> - true
-<Expression> - false
-<Expression> - ! <Expression>
-<Expression> - - <Expression>
-<Expression> - ( <Expression> )
+<Expression> - [String] . <StringExpression>
+<Expression> - <VarExpression> . <StringExpression>
+<Expression> - [String]
+<Expression> - <FloatWithoutVar> <MulDiv> <FloatProductQuotient> <PlusMinus> <FloatExpression>
+<Expression> - <VarExpression> <MulDiv> <FloatProductQuotient> <PlusMinus> <FloatExpression>
+<Expression> - <FloatWithoutVar> <PlusMinus> <FloatExpression>
+<Expression> - <VarExpression> <PlusMinus> <FloatExpression>
+<Expression> - <FloatWithoutVar> <MulDiv> <FloatProductQuotient>
+<Expression> - <VarExpression> <MulDiv> <FloatProductQuotient>
+<Expression> - <FloatWithoutVar>
+<Expression> - <BoolWithoutVar> && <AndResult> || <BoolExpression>
+<Expression> - <VarExpression> && <AndResult> || <BoolExpression>
+<Expression> - <BoolWithoutVar> || <BoolExpression>
+<Expression> - <VarExpression> || <BoolExpression>
+<Expression> - <BoolWithoutVar> && <AndResult>
+<Expression> - <VarExpression> && <AndResult>
+<Expression> - <BoolWithoutVar>
 <Expressions> - <Expression> <CommaExpressions>
 <Expressions> - @
 <CommaExpressions> - , <Expression> <CommaExpressions>
 <CommaExpressions> - @
-<BinaryOperation> - +
-<BinaryOperation> - -
-<BinaryOperation> - *
-<BinaryOperation> - /
-<BinaryOperation> - %
-<BinaryOperation> - &
-<BinaryOperation> - |
-<BinaryOperation> - <
-<BinaryOperation> - >
-<BinaryOperation> - <=
-<BinaryOperation> - >=
-<BinaryOperation> - ==
-<BinaryOperation> - !=
+<FloatWithoutVar> - float ( <FloatExpression> )
+<FloatWithoutVar> - int ( <FloatExpression> )
+<FloatWithoutVar> - [FloatPointNumber]
+<FloatWithoutVar> - [Integer]
+<FloatWithoutVar> - [Binary]
+<FloatWithoutVar> - [Hexadecimal]
+<FloatWithoutVar> - - <Float>
+<BoolWithoutVar> - bool ( <BoolExpression> )
+<BoolWithoutVar> - true
+<BoolWithoutVar> - false
+<BoolWithoutVar> - ! <Bool>
+<BoolWithoutVar> - <Comparison> ( <Expression> , <Expression> )
+<VarExpression> - [Identifier] ( <Expressions> ) <Arr>
+<VarExpression> - [Identifier] <Arr>
+<CharExpression> - <VarExpression>
+<CharExpression> - [Char]
+<CharExpression> - read ( )
+<StringExpression> - [String] . <StringExpression>
+<StringExpression> - <VarExpression> . <StringExpression>
+<StringExpression> - [String]
+<StringExpression> - <VarExpression>
+<IntExpression> - <IntProductQuotient> <PlusMinus> <IntExpression>
+<IntExpression> - <IntProductQuotient>
+<IntProductQuotient> - <Int> <MulDiv> <IntProductQuotient>
+<IntProductQuotient> - <Int>
+<Int> - <VarExpression>
+<Int> - int ( <IntExpression> )
+<Int> - [Integer]
+<Int> - [Binary]
+<Int> - [Hexadecimal]
+<Int> - - <Int>
+<FloatExpression> - <FloatProductQuotient> <PlusMinus> <FloatExpression>
+<FloatExpression> - <FloatProductQuotient>
+<FloatProductQuotient> - <Float> <MulDiv> <FloatProductQuotient>
+<FloatProductQuotient> - <Float>
+<Float> - <VarExpression>
+<Float> - float ( <FloatExpression> )
+<Float> - int ( <FloatExpression> )
+<Float> - [FloatPointNumber]
+<Float> - [Integer]
+<Float> - [Binary]
+<Float> - [Hexadecimal]
+<Float> - - <Float>
+<BoolExpression> - <AndResult> || <BoolExpression>
+<BoolExpression> - <AndResult>
+<AndResult> - <Bool> && <AndResult>
+<AndResult> - <Bool>
+<Bool> - <VarExpression>
+<Bool> - bool ( <BoolExpression> )
+<Bool> - true
+<Bool> - false
+<Bool> - ! <Bool>
+<Bool> - <Comparison> ( <Expression> , <Expression> )
+<PlusMinus> - +
+<PlusMinus> - -
+<MulDiv> - *
+<MulDiv> - /
+<MulDiv> - %
+<Comparison> - equal
+<Comparison> - notEqual
+<Comparison> - less
+<Comparison> - greater
+<Comparison> - lessEqual
+<Comparison> - greaterEqual
