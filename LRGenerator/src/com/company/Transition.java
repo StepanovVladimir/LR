@@ -8,6 +8,7 @@ public class Transition
     public boolean isTransition;
 
     public Set<Position> positions = new HashSet<>();
+    public String function;
 
     public String ch;
     public int count;

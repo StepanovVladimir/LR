@@ -18,17 +18,26 @@ public class Main
             ArrayList<Token> input = readInput(args[1]);
 
             Stack<Integer> statesStack = new Stack<>();
+            Stack<String> charsStack = new Stack<>();
             statesStack.push(0);
 
             Set<String> possibleChs = new TreeSet<>();
 
+            Semantics semantics = new Semantics(charsStack);
             while (!input.isEmpty())
             {
                 Row row = table.get(statesStack.peek());
                 Token token = input.get(0);
                 if (row.transitions.containsKey(token.value))
                 {
-                    statesStack.push(row.transitions.get(token.value));
+                    statesStack.push(row.transitions.get(token.value).state);
+                    charsStack.push(token.value);
+
+                    String function = row.transitions.get(token.value).function;
+                    if (function != null)
+                    {
+                        semantics.doFunction(function);
+                    }
 
                     if (!isNontermChar(token.value))
                     {
@@ -44,7 +53,15 @@ public class Main
                 }
                 else if (row.transitions.containsKey("[" + token.tokentype.toString() + "]"))
                 {
-                    statesStack.push(row.transitions.get("[" + token.tokentype.toString() + "]"));
+                    String tokenType = "[" + token.tokentype.toString() + "]";
+                    statesStack.push(row.transitions.get(tokenType).state);
+                    charsStack.push(token.value);
+
+                    String function = row.transitions.get(tokenType).function;
+                    if (function != null)
+                    {
+                        semantics.doFunction(function);
+                    }
 
                     if (!isNontermChar(token.value))
                     {
@@ -74,6 +91,7 @@ public class Main
                     for (int i = 0; i < row.coagulation.count; i++)
                     {
                         statesStack.pop();
+                        charsStack.pop();
                     }
                 }
                 else
@@ -88,7 +106,7 @@ public class Main
                 }
             }
         }
-        catch (IOException e)
+        catch (Exception e)
         {
             System.out.println(e.getMessage());
         }
@@ -109,11 +127,22 @@ public class Main
 
                 int index = cell.indexOf('_', 2);
                 String ch = cell.substring(2, index);
-                int i = Integer.parseInt(cell.substring(index + 1));
+                int index1 = cell.indexOf('_', index + 1);
+                int i;
+                String function = null;
+                if (index1 == -1)
+                {
+                    i = Integer.parseInt(cell.substring(index + 1));
+                }
+                else
+                {
+                    i = Integer.parseInt(cell.substring(index + 1, index1));
+                    function = cell.substring(index1 + 1);
+                }
 
                 if (cell.charAt(0) == 'S')
                 {
-                    row.transitions.put(ch, i);
+                    row.transitions.put(ch, new Row.Transition(i, function));
                 }
                 else
                 {

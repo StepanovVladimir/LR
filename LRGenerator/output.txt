@@ -1,243 +1,246 @@
-R_<Funcs>_0 S_void_97 S_<Type>_52 S_string_128 S_bool_101 S_<Funcs>_215 S_<FuncType>_12 S_char_118 S_<Func>_228 S_float_143 S_int_80 
-S_bool_189 S_[Char]_225 S_<Comparison>_238 S_<Expression>_3 S_<VarExpression>_196 S_[String]_64 S_float_87 S_<FloatWithoutVar>_170 S_[Hexadecimal]_164 S_greater_5 S_!_224 S_read_240 S_[Identifier]_49 S_false_214 S_notEqual_217 S_less_231 S_-_173 S_int_105 S_[Binary]_147 S_equal_202 S_[Integer]_136 S_true_200 S_greaterEqual_39 S_lessEqual_23 S_<BoolWithoutVar>_104 S_[FloatPointNumber]_122 
+R_<Funcs>_0 S_<Type>_19_addFuncType S_void_94_addFuncTypeVoid S_string_126_pushTypeString S_bool_95_pushTypeBool S_<Funcs>_221 S_char_111_pushTypeChar S_<Func>_232 S_float_142_pushTypeFloat S_int_77_pushTypeInt 
 R_<Expression>_3 
-S_)_4 
-R_<BoolWithoutVar>_6 
+R_<Arr>_0 S_<Arr>_3 S_[_185_pushArr 
+R_<VarExpression>_5 
 R_<Comparison>_1 
 R_<Int>_1 
-S_<Bool>_48 S_!_113 S_bool_63 S_[Identifier]_49 S_<AndResult>_9 S_<Comparison>_125 S_false_96 S_notEqual_217 S_less_231 S_<VarExpression>_50 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
-R_<Expressions>_0 S_bool_189 S_[Char]_225 S_<Comparison>_238 S_<Expression>_25 S_<VarExpression>_196 S_[String]_64 S_float_87 S_<FloatWithoutVar>_170 S_[Hexadecimal]_164 S_greater_5 S_!_224 S_read_240 S_[Identifier]_49 S_false_214 S_notEqual_217 S_less_231 S_-_173 S_int_105 S_[Binary]_147 S_equal_202 S_[Integer]_136 S_true_200 S_greaterEqual_39 S_lessEqual_23 S_<Expressions>_11 S_<BoolWithoutVar>_104 S_[FloatPointNumber]_122 
-R_<AndResult>_3 
-S_[Identifier]_49 S_<StringExpression>_13 S_[String]_201 S_<VarExpression>_230 
-S_)_14 
-S_[Identifier]_15 
+R_<CommaExpressions>_0 S_,_51 S_<CommaExpressions>_7 
+R_<Expressions>_2 
+S_(_9 
+S_<Bool>_16 S_!_108 S_bool_60 S_[Identifier]_17 S_<AndResult>_206 S_<Comparison>_123 S_false_91 S_notEqual_211 S_less_223 S_<VarExpression>_40_checkTypeIsBool S_<BoolExpression>_10 S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
+S_)_11 
+S_{_12_enteringBlock 
+R_<Statements>_0 S_<Statements>_13 S_read_72 S_string_126_pushTypeString S_bool_95_pushTypeBool S_[Identifier]_174 S_while_32 S_float_142_pushTypeFloat S_int_77_pushTypeInt S_print_54 S_<Statement>_225 S_<Type>_102 S_char_111_pushTypeChar S_if_8 S_return_240 
+S_}_14_exitBlock 
+R_<Else>_0 S_else_159 S_<Else>_15 
+R_<Statement>_8 
+R_<AndResult>_1 S_&&_241 
+R_<Arr>_0 S_<Arr>_18_pushTypeOfId1 S_(_242_findFunc S_[_185_pushArr 
+R_<VarExpression>_2 
+S_[Identifier]_21_addFunction 
+S_[Identifier]_17 S_<StringExpression>_22_pushTypeString S_[String]_190 S_<VarExpression>_210_checkTypeIsString 
+S_(_23_enteringBlock 
 R_<Expression>_3 
-R_<Arr>_0 S_<Arr>_16 S_[_158 
-S_(_17 
-R_<VarExpression>_5 
-R_<Args>_0 S_<Type>_182 S_string_128 S_bool_101 S_char_118 S_<Args>_18 S_float_143 S_int_80 
-S_)_19 
-S_{_20 
-R_<Statements>_0 S_<Statements>_21 S_read_88 S_string_128 S_bool_101 S_[Identifier]_233 S_while_57 S_float_143 S_int_80 S_print_72 S_<Statement>_236 S_<Type>_234 S_char_118 S_{_27 S_if_42 S_return_85 
-S_}_22 
+R_<Args>_0 S_<Type>_176 S_string_126_pushTypeString S_bool_95_pushTypeBool S_char_111_pushTypeChar S_<Args>_24 S_float_142_pushTypeFloat S_int_77_pushTypeInt 
+S_)_25 
+S_{_26 
+R_<Statements>_0 S_<Statements>_27 S_read_72 S_string_126_pushTypeString S_bool_95_pushTypeBool S_[Identifier]_174 S_while_32 S_float_142_pushTypeFloat S_int_77_pushTypeInt S_print_54 S_<Statement>_225 S_<Type>_102 S_char_111_pushTypeChar S_if_8 S_return_240 
+S_}_28_exitBlock 
 R_<Func>_8 
 R_<Comparison>_1 
-R_<Int>_1 
-R_<CommaExpressions>_0 S_,_54 S_<CommaExpressions>_26 
-R_<Expressions>_2 
-R_<Statements>_0 S_<Statements>_28 S_read_88 S_string_128 S_bool_101 S_[Identifier]_233 S_while_57 S_float_143 S_int_80 S_print_72 S_<Statement>_236 S_<Type>_234 S_char_118 S_{_27 S_if_42 S_return_85 
-S_}_29 
-R_<Statement>_3 
-R_<VarExpression>_2 
-S_[Identifier]_49 S_<StringExpression>_33 S_[String]_201 S_<VarExpression>_230 
-S_(_34 
-R_<Expression>_3 
-S_)_35 
-S_{_36 
-R_<Statements>_0 S_<Statements>_37 S_read_88 S_string_128 S_bool_101 S_[Identifier]_233 S_while_57 S_float_143 S_int_80 S_print_72 S_<Statement>_236 S_<Type>_234 S_char_118 S_{_27 S_if_42 S_return_85 
-S_}_38 
-R_<Func>_7 
-R_<Comparison>_1 
-S_[Integer]_232 S_[Identifier]_49 S_[Hexadecimal]_24 S_<Int>_41 S_<VarExpression>_203 S_-_40 S_int_218 S_[Binary]_6 
+S_[Integer]_224 S_[Identifier]_17 S_[Hexadecimal]_5 S_<Int>_31 S_<VarExpression>_199_checkTypeIsInt S_-_30 S_int_212 S_[Binary]_239 
 R_<Int>_2 
-S_(_43 
-S_<Bool>_48 S_!_113 S_bool_63 S_[Identifier]_49 S_<AndResult>_222 S_<Comparison>_125 S_false_96 S_notEqual_217 S_less_231 S_<VarExpression>_50 S_<BoolExpression>_44 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
-S_)_45 
-S_read_88 S_string_128 S_bool_101 S_[Identifier]_233 S_while_57 S_float_143 S_int_80 S_<Statement>_46 S_print_72 S_<Type>_234 S_char_118 S_{_27 S_if_42 S_return_85 
-R_<Else>_0 S_else_191 S_<Else>_47 
-R_<Statement>_6 
-R_<AndResult>_1 S_&&_7 
-R_<Arr>_0 S_<Arr>_30 S_(_8 S_[_158 
+S_(_33 
+S_<Bool>_16 S_!_108 S_bool_60 S_[Identifier]_17 S_<AndResult>_206 S_<Comparison>_123 S_false_91 S_notEqual_211 S_less_223 S_<VarExpression>_40_checkTypeIsBool S_<BoolExpression>_34 S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
+S_)_35 
+S_{_36_enteringBlock 
+R_<Statements>_0 S_<Statements>_37 S_read_72 S_string_126_pushTypeString S_bool_95_pushTypeBool S_[Identifier]_174 S_while_32 S_float_142_pushTypeFloat S_int_77_pushTypeInt S_print_54 S_<Statement>_225 S_<Type>_102 S_char_111_pushTypeChar S_if_8 S_return_240 
+S_}_38_exitBlock 
+R_<Statement>_7 
+R_<Expression>_1 S_._244 
 R_<Bool>_1 
-R_<CharExpression>_1 
-R_<FuncType>_1 
-S_<Float>_177 S_[Integer]_171 S_<FloatExpression>_55 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_<FloatProductQuotient>_124 S_[Binary]_188 S_[FloatPointNumber]_163 
-S_bool_189 S_[Char]_225 S_<Comparison>_238 S_<Expression>_56 S_<VarExpression>_196 S_[String]_64 S_float_87 S_<FloatWithoutVar>_170 S_[Hexadecimal]_164 S_greater_5 S_!_224 S_read_240 S_[Identifier]_49 S_false_214 S_notEqual_217 S_less_231 S_-_173 S_int_105 S_[Binary]_147 S_equal_202 S_[Integer]_136 S_true_200 S_greaterEqual_39 S_lessEqual_23 S_<BoolWithoutVar>_104 S_[FloatPointNumber]_122 
+S_(_42_enteringBlock 
+R_<Args>_0 S_<Type>_176 S_string_126_pushTypeString S_bool_95_pushTypeBool S_char_111_pushTypeChar S_<Args>_43 S_float_142_pushTypeFloat S_int_77_pushTypeInt 
+S_)_44 
+S_{_45 
+R_<Statements>_0 S_<Statements>_46 S_read_72 S_string_126_pushTypeString S_bool_95_pushTypeBool S_[Identifier]_174 S_while_32 S_float_142_pushTypeFloat S_int_77_pushTypeInt S_print_54 S_<Statement>_225 S_<Type>_102 S_char_111_pushTypeChar S_if_8 S_return_240 
+S_}_48_exitBlock 
+S_&&_135 S_||_193 R_<Expression>_1 
+R_<Func>_8 
+R_<IntExpression>_1 S_<PlusMinus>_151 S_+_141 S_-_150 
+S_<Float>_164 S_[Integer]_170_pushTypeInt S_<FloatExpression>_52_pushTypeIntOrFloatFrom2 S_[Identifier]_17 S_[Hexadecimal]_196_pushTypeInt S_<VarExpression>_117_checkTypeIsIntOrFloat S_float_132 S_-_207 S_int_144 S_<FloatProductQuotient>_107 S_[FloatPointNumber]_156_pushTypeFloat S_[Binary]_182_pushTypeInt 
+S_bool_183 S_[Char]_218_pushTypeChar S_<Comparison>_227 S_<Expression>_53_addTypeToCalledFunc S_<VarExpression>_92 S_[String]_39_pushTypeString S_float_81 S_<FloatWithoutVar>_131 S_[Hexadecimal]_157_pushTypeInt S_greater_238 S_!_217 S_read_229 S_[Identifier]_17 S_false_209 S_notEqual_211 S_less_223 S_-_171 S_int_100 S_[Binary]_146_pushTypeInt S_equal_198 S_[Integer]_134_pushTypeInt S_true_197 S_greaterEqual_29 S_lessEqual_4 S_<BoolWithoutVar>_47_pushTypeBool S_[FloatPointNumber]_118_pushTypeFloat 
 R_<FloatExpression>_3 
-R_<CommaExpressions>_0 S_,_54 S_<CommaExpressions>_58 
-S_(_59 
+R_<CommaExpressions>_0 S_,_51 S_<CommaExpressions>_55 
+S_(_56 
 R_<CommaExpressions>_3 
-S_<Bool>_48 S_!_113 S_bool_63 S_[Identifier]_49 S_<AndResult>_222 S_<Comparison>_125 S_false_96 S_notEqual_217 S_less_231 S_<VarExpression>_50 S_<BoolExpression>_60 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
-S_)_61 
-S_read_88 S_string_128 S_bool_101 S_[Identifier]_233 S_while_57 S_float_143 S_int_80 S_<Statement>_62 S_print_72 S_<Type>_234 S_char_118 S_{_27 S_if_42 S_return_85 
+S_bool_183 S_[Char]_218_pushTypeChar S_<Comparison>_227 S_<Expression>_57 S_<VarExpression>_92 S_[String]_39_pushTypeString S_float_81 S_<FloatWithoutVar>_131 S_[Hexadecimal]_157_pushTypeInt S_greater_238 S_!_217 S_read_229 S_[Identifier]_17 S_false_209 S_notEqual_211 S_less_223 S_-_171 S_int_100 S_[Binary]_146_pushTypeInt S_equal_198 S_[Integer]_134_pushTypeInt S_true_197 S_greaterEqual_29 S_lessEqual_4 S_<BoolWithoutVar>_47_pushTypeBool S_[FloatPointNumber]_118_pushTypeFloat 
+S_)_58_popType 
+S_;_59 
 R_<Statement>_5 
-S_(_65 
-R_<Expression>_1 S_._10 
-S_<Bool>_48 S_!_113 S_bool_63 S_[Identifier]_49 S_<AndResult>_222 S_<Comparison>_125 S_false_96 S_notEqual_217 S_less_231 S_<VarExpression>_50 S_<BoolExpression>_67 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
-R_<CharExpression>_1 
-S_)_68 
+S_(_61 
+S_<Bool>_16 S_!_108 S_bool_60 S_[Identifier]_17 S_<AndResult>_206 S_<Comparison>_123 S_false_91 S_notEqual_211 S_less_223 S_<VarExpression>_40_checkTypeIsBool S_<BoolExpression>_62 S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
+S_)_63 
 R_<Bool>_4 
-S_<Float>_177 S_[Integer]_171 S_<FloatExpression>_70 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_<FloatProductQuotient>_124 S_[Binary]_188 S_[FloatPointNumber]_163 
+S_(_66_enteringBlock 
+S_<Float>_164 S_[Integer]_170_pushTypeInt S_<FloatExpression>_67_pushTypeIntOrFloatFrom2 S_[Identifier]_17 S_[Hexadecimal]_196_pushTypeInt S_<VarExpression>_117_checkTypeIsIntOrFloat S_float_132 S_-_207 S_int_144 S_<FloatProductQuotient>_107 S_[FloatPointNumber]_156_pushTypeFloat S_[Binary]_182_pushTypeInt 
+S_)_68 
 R_<Expression>_5 
-R_<IntExpression>_1 S_<PlusMinus>_157 S_+_142 S_-_156 
+S_{_69 
+R_<Statements>_0 S_<Statements>_70 S_read_72 S_string_126_pushTypeString S_bool_95_pushTypeBool S_[Identifier]_174 S_while_32 S_float_142_pushTypeFloat S_int_77_pushTypeInt S_print_54 S_<Statement>_225 S_<Type>_102 S_char_111_pushTypeChar S_if_8 S_return_240 
+S_}_71_exitBlock 
+R_<Func>_7 
 S_(_73 
-S_read_78 S_[Identifier]_49 S_[Char]_66 S_<VarExpression>_51 S_<CharExpression>_74 
-S_)_75 
-S_;_76 
-R_<Statement>_5 
-R_<Bool>_1 
-S_(_79 
-S_)_81 
-R_<Arr>_0 S_<Arr>_82 S_[_158 
-R_<CharExpression>_3 
-R_<Type>_2 
-S_<Float>_177 S_[Integer]_171 S_<FloatExpression>_84 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_<FloatProductQuotient>_124 S_[Binary]_188 S_[FloatPointNumber]_163 
-R_<Expression>_5 
-S_bool_189 S_[Char]_225 S_<Comparison>_238 S_<Expression>_165 S_<VarExpression>_196 S_[String]_64 S_float_87 S_<FloatWithoutVar>_170 S_[Hexadecimal]_164 S_greater_5 S_!_224 S_read_240 S_[Identifier]_49 S_false_214 S_notEqual_217 S_less_231 S_-_173 S_int_105 S_[Binary]_147 S_equal_202 S_[Integer]_136 S_true_200 S_greaterEqual_39 S_;_176 S_lessEqual_23 S_<BoolWithoutVar>_104 S_[FloatPointNumber]_122 
-S_<Float>_177 S_[Integer]_171 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_<FloatProductQuotient>_89 S_[Binary]_188 S_[FloatPointNumber]_163 
-S_(_90 
-S_(_91 
-R_<FloatProductQuotient>_3 
-S_<Float>_177 S_[Integer]_171 S_<FloatExpression>_92 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_<FloatProductQuotient>_124 S_[Binary]_188 S_[FloatPointNumber]_163 
-S_)_93 
-S_)_94 
-S_;_95 
-R_<FloatWithoutVar>_4 
+S_)_74 
+S_;_75 
 R_<Statement>_4 
 R_<Bool>_1 
-R_<FuncType>_1 S_main_32 
-S_[Identifier]_49 S_<StringExpression>_99 S_[String]_201 S_<VarExpression>_230 
-R_<StringExpression>_3 
-S_<Float>_177 S_[Integer]_171 S_<FloatExpression>_102 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_<FloatProductQuotient>_124 S_[Binary]_188 S_[FloatPointNumber]_163 
-R_<Arr>_0 S_<Arr>_103 S_[_158 
-R_<Expression>_3 
+R_<ArrDecl>_0 S_[_152 S_<ArrDecl>_78 
 R_<Type>_2 
-S_||_197 S_&&_148 R_<Expression>_1 
-S_(_106 
-S_<Float>_177 S_[Integer]_171 S_<FloatExpression>_107 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_<FloatProductQuotient>_124 S_[Binary]_188 S_[FloatPointNumber]_163 
-S_)_109 
-R_<Expressions>_0 S_bool_189 S_[Char]_225 S_<Comparison>_238 S_<Expression>_25 S_<VarExpression>_196 S_[String]_64 S_float_87 S_<FloatWithoutVar>_170 S_[Hexadecimal]_164 S_greater_5 S_!_224 S_read_240 S_[Identifier]_49 S_false_214 S_notEqual_217 S_less_231 S_-_173 S_int_105 S_[Binary]_147 S_equal_202 S_[Integer]_136 S_true_200 S_greaterEqual_39 S_lessEqual_23 S_<Expressions>_110 S_<BoolWithoutVar>_104 S_[FloatPointNumber]_122 
+S_<Float>_164 S_[Integer]_170_pushTypeInt S_<FloatExpression>_80_pushTypeIntOrFloatFrom2 S_[Identifier]_17 S_[Hexadecimal]_196_pushTypeInt S_<VarExpression>_117_checkTypeIsIntOrFloat S_float_132 S_-_207 S_int_144 S_<FloatProductQuotient>_107 S_[FloatPointNumber]_156_pushTypeFloat S_[Binary]_182_pushTypeInt 
+R_<Expression>_5 
+S_(_83 
+S_<Float>_164 S_[Integer]_170_pushTypeInt S_[Identifier]_17 S_[Hexadecimal]_196_pushTypeInt S_<VarExpression>_117_checkTypeIsIntOrFloat S_float_132 S_-_207 S_int_144 S_<FloatProductQuotient>_84_pushTypeIntOrFloatFrom2 S_[FloatPointNumber]_156_pushTypeFloat S_[Binary]_182_pushTypeInt 
+S_<Float>_164 S_[Integer]_170_pushTypeInt S_<FloatExpression>_85 S_[Identifier]_17 S_[Hexadecimal]_196_pushTypeInt S_<VarExpression>_117_checkTypeIsIntOrFloat S_float_132 S_-_207 S_int_144 S_<FloatProductQuotient>_107 S_[FloatPointNumber]_156_pushTypeFloat S_[Binary]_182_pushTypeInt 
+R_<FloatProductQuotient>_3 
+S_)_87_pushTypeFloat 
+R_<Expressions>_0 S_bool_183 S_[Char]_218_pushTypeChar S_<Comparison>_227 S_<Expression>_6_addTypeToCalledFunc S_<VarExpression>_92 S_[String]_39_pushTypeString S_float_81 S_<FloatWithoutVar>_131 S_[Hexadecimal]_157_pushTypeInt S_greater_238 S_!_217 S_read_229 S_[Identifier]_17 S_false_209 S_notEqual_211 S_less_223 S_-_171 S_int_100 S_[Binary]_146_pushTypeInt S_equal_198 S_[Integer]_134_pushTypeInt S_true_197 S_greaterEqual_29 S_lessEqual_4 S_<Expressions>_88 S_<BoolWithoutVar>_47 S_[FloatPointNumber]_118_pushTypeFloat 
 R_<FloatWithoutVar>_4 
-S_)_111 
-S_;_112 
+S_)_89_checkParametersWithoutPush 
+S_;_90 
 R_<Statement>_5 
-S_<Bool>_114 S_!_113 S_bool_63 S_[Identifier]_49 S_<Comparison>_125 S_false_96 S_notEqual_217 S_<VarExpression>_50 S_less_231 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
-R_<Bool>_2 
-S_[Identifier]_49 S_<StringExpression>_117 S_[String]_201 S_<VarExpression>_230 
-S_<Float>_177 S_[Integer]_171 S_<FloatExpression>_119 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_<FloatProductQuotient>_124 S_[Binary]_188 S_[FloatPointNumber]_163 
+R_<Bool>_1 
+R_<Expression>_1 S_||_201_checkTypeIsBool S_&&_158_checkTypeIsBool S_%_191 S_<PlusMinus>_113_checkTypeIsIntOrFloat S_<MulDiv>_192_checkTypeIsIntOrFloat S_*_165 S_+_141 S_-_150 S_._20_checkTypeIsString S_/_173 
+S_[Identifier]_17 S_<StringExpression>_96 S_[String]_190 S_<VarExpression>_210_checkTypeIsString 
+S_[Identifier]_41_addFunction S_main_64_addFunction 
+R_<ArrDecl>_0 S_[_152 S_<ArrDecl>_98 
 R_<StringExpression>_3 
-R_<Arr>_0 S_<Arr>_120 S_[_158 
-R_<Expression>_3 
+S_<Float>_164 S_[Integer]_170_pushTypeInt S_<FloatExpression>_99_pushTypeIntOrFloatFrom2 S_[Identifier]_17 S_[Hexadecimal]_196_pushTypeInt S_<VarExpression>_117_checkTypeIsIntOrFloat S_float_132 S_-_207 S_int_144 S_<FloatProductQuotient>_107 S_[FloatPointNumber]_156_pushTypeFloat S_[Binary]_182_pushTypeInt 
 R_<Type>_2 
+R_<Expression>_3 
+S_(_101 
+S_<IntProductQuotient>_49 S_[Integer]_224 S_<IntExpression>_103 S_[Identifier]_17 S_[Hexadecimal]_5 S_<Int>_116 S_<VarExpression>_199_checkTypeIsInt S_-_30 S_int_212 S_[Binary]_239 
+S_[Identifier]_104_addToCharsTable 
+S_)_105_pushTypeInt 
+S_;_106 
+R_<FloatWithoutVar>_4 
+R_<Statement>_3 
+R_<FloatExpression>_1 S_<PlusMinus>_50 S_+_141 S_-_150 
+S_<Bool>_109 S_!_108 S_bool_60 S_[Identifier]_17 S_<Comparison>_123 S_false_91 S_notEqual_211 S_<VarExpression>_40_checkTypeIsBool S_less_223 S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
+R_<Bool>_2 
+S_[Identifier]_17 S_<StringExpression>_112 S_[String]_190 S_<VarExpression>_210_checkTypeIsString 
+R_<ArrDecl>_0 S_[_152 S_<ArrDecl>_114 
+R_<StringExpression>_3 
+S_<Float>_164 S_[Integer]_170_pushTypeInt S_<FloatExpression>_115_pushTypeIntOrFloatFrom2 S_[Identifier]_17 S_[Hexadecimal]_196_pushTypeInt S_<VarExpression>_117_checkTypeIsIntOrFloat S_float_132 S_-_207 S_int_144 S_<FloatProductQuotient>_107 S_[FloatPointNumber]_156_pushTypeFloat S_[Binary]_182_pushTypeInt 
+R_<Type>_2 
+R_<Expression>_3 
+R_<IntProductQuotient>_1 S_%_191 S_<MulDiv>_175 S_*_165 S_/_173 
 R_<Float>_1 
 R_<FloatWithoutVar>_1 
-R_<Statement>_3 
-R_<FloatExpression>_1 S_<PlusMinus>_53 S_+_142 S_-_156 
-S_(_126 
-S_bool_189 S_[Char]_225 S_<Comparison>_238 S_<Expression>_127 S_<VarExpression>_196 S_[String]_64 S_float_87 S_<FloatWithoutVar>_170 S_[Hexadecimal]_164 S_greater_5 S_!_224 S_read_240 S_[Identifier]_49 S_false_214 S_notEqual_217 S_less_231 S_-_173 S_int_105 S_[Binary]_147 S_equal_202 S_[Integer]_136 S_true_200 S_greaterEqual_39 S_lessEqual_23 S_<BoolWithoutVar>_104 S_[FloatPointNumber]_122 
-S_,_129 
-R_<Arr>_0 S_<Arr>_130 S_[_158 
-S_bool_189 S_[Char]_225 S_<Comparison>_238 S_<Expression>_131 S_<VarExpression>_196 S_[String]_64 S_float_87 S_<FloatWithoutVar>_170 S_[Hexadecimal]_164 S_greater_5 S_!_224 S_read_240 S_[Identifier]_49 S_false_214 S_notEqual_217 S_less_231 S_-_173 S_int_105 S_[Binary]_147 S_equal_202 S_[Integer]_136 S_true_200 S_greaterEqual_39 S_lessEqual_23 S_<BoolWithoutVar>_104 S_[FloatPointNumber]_122 
-R_<Type>_2 
-S_)_132 
-R_<Bool>_6 
-R_<IntProductQuotient>_1 S_%_195 S_<MulDiv>_180 S_*_167 S_/_178 
-S_(_135 
-S_<Float>_177 S_[Integer]_171 S_<FloatExpression>_137 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_<FloatProductQuotient>_124 S_[Binary]_188 S_[FloatPointNumber]_163 
-R_<FloatWithoutVar>_1 
-S_)_138 
-R_<Float>_4 
-S_bool_189 S_[Char]_225 S_<Comparison>_238 S_<Expression>_140 S_<VarExpression>_196 S_[String]_64 S_float_87 S_<FloatWithoutVar>_170 S_[Hexadecimal]_164 S_greater_5 S_!_224 S_read_240 S_[Identifier]_49 S_false_214 S_notEqual_217 S_less_231 S_-_173 S_int_105 S_[Binary]_147 S_equal_202 S_[Integer]_136 S_true_200 S_greaterEqual_39 S_lessEqual_23 S_<BoolWithoutVar>_104 S_[FloatPointNumber]_122 
-S_;_141 
+S_=_120_pushTypeOfId2 
+S_bool_183 S_[Char]_218_pushTypeChar S_<Comparison>_227 S_<Expression>_121_checkTypesAtAssign S_<VarExpression>_92 S_[String]_39_pushTypeString S_float_81 S_<FloatWithoutVar>_131 S_[Hexadecimal]_157_pushTypeInt S_greater_238 S_!_217 S_read_229 S_[Identifier]_17 S_false_209 S_notEqual_211 S_less_223 S_-_171 S_int_100 S_[Binary]_146_pushTypeInt S_equal_198 S_[Integer]_134_pushTypeInt S_true_197 S_greaterEqual_29 S_lessEqual_4 S_<BoolWithoutVar>_47_pushTypeBool S_[FloatPointNumber]_118_pushTypeFloat 
+S_;_122 
 R_<Statement>_5 
-R_<PlusMinus>_1 
-R_<Arr>_0 S_<Arr>_144 S_[_158 
+S_(_124 
+S_bool_183 S_[Char]_218_pushTypeChar S_<Comparison>_227 S_<Expression>_125 S_<VarExpression>_92 S_[String]_39_pushTypeString S_float_81 S_<FloatWithoutVar>_131 S_[Hexadecimal]_157_pushTypeInt S_greater_238 S_!_217 S_read_229 S_[Identifier]_17 S_false_209 S_notEqual_211 S_less_223 S_-_171 S_int_100 S_[Binary]_146_pushTypeInt S_equal_198 S_[Integer]_134_pushTypeInt S_true_197 S_greaterEqual_29 S_lessEqual_4 S_<BoolWithoutVar>_47_pushTypeBool S_[FloatPointNumber]_118_pushTypeFloat 
+S_,_127 
+R_<ArrDecl>_0 S_[_152 S_<ArrDecl>_128 
+S_bool_183 S_[Char]_218_pushTypeChar S_<Comparison>_227 S_<Expression>_129 S_<VarExpression>_92 S_[String]_39_pushTypeString S_float_81 S_<FloatWithoutVar>_131 S_[Hexadecimal]_157_pushTypeInt S_greater_238 S_!_217 S_read_229 S_[Identifier]_17 S_false_209 S_notEqual_211 S_less_223 S_-_171 S_int_100 S_[Binary]_146_pushTypeInt S_equal_198 S_[Integer]_134_pushTypeInt S_true_197 S_greaterEqual_29 S_lessEqual_4 S_<BoolWithoutVar>_47_pushTypeBool S_[FloatPointNumber]_118_pushTypeFloat 
 R_<Type>_2 
-S_(_146 
-S_<Float>_177 S_[Integer]_171 S_<FloatExpression>_149 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_<FloatProductQuotient>_124 S_[Binary]_188 S_[FloatPointNumber]_163 
+S_)_130_checkTypesAtComparison 
+R_<Bool>_6 
+R_<Expression>_1 S_%_191 S_<PlusMinus>_97 S_<MulDiv>_166 S_*_165 S_+_141 S_-_150 S_/_173 
+S_(_133 
+S_<Float>_164 S_[Integer]_170_pushTypeInt S_<FloatExpression>_136 S_[Identifier]_17 S_[Hexadecimal]_196_pushTypeInt S_<VarExpression>_117_checkTypeIsIntOrFloat S_float_132 S_-_207 S_int_144 S_<FloatProductQuotient>_107 S_[FloatPointNumber]_156_pushTypeFloat S_[Binary]_182_pushTypeInt 
 R_<FloatWithoutVar>_1 
-S_<Bool>_48 S_!_113 S_bool_63 S_[Identifier]_49 S_<AndResult>_151 S_<Comparison>_125 S_false_96 S_notEqual_217 S_less_231 S_<VarExpression>_50 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
-S_)_150 
+S_<Bool>_16 S_!_108 S_bool_60 S_[Identifier]_17 S_<AndResult>_138 S_<Comparison>_123 S_false_91 S_notEqual_211 S_less_223 S_<VarExpression>_40_checkTypeIsBool S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
+S_)_137_pushTypeFloat 
 R_<Float>_4 
 R_<Expression>_3 S_||_168 
-S_=_153 
-S_bool_189 S_[Char]_225 S_<Comparison>_238 S_<Expression>_154 S_<VarExpression>_196 S_[String]_64 S_float_87 S_<FloatWithoutVar>_170 S_[Hexadecimal]_164 S_greater_5 S_!_224 S_read_240 S_[Identifier]_49 S_false_214 S_notEqual_217 S_less_231 S_-_173 S_int_105 S_[Binary]_147 S_equal_202 S_[Integer]_136 S_true_200 S_greaterEqual_39 S_lessEqual_23 S_<BoolWithoutVar>_104 S_[FloatPointNumber]_122 
-S_;_155 
-R_<Statement>_5 
+S_;_140_checkFuncType 
+R_<Statement>_3 
 R_<PlusMinus>_1 
-S_<IntProductQuotient>_71 S_[Integer]_232 S_<IntExpression>_159 S_[Identifier]_49 S_[Hexadecimal]_24 S_<Int>_133 S_<VarExpression>_203 S_-_40 S_int_218 S_[Binary]_6 
-S_<IntProductQuotient>_71 S_[Integer]_232 S_<IntExpression>_160 S_[Identifier]_49 S_[Hexadecimal]_24 S_<Int>_133 S_<VarExpression>_203 S_-_40 S_int_218 S_[Binary]_6 
+R_<ArrDecl>_0 S_[_152 S_<ArrDecl>_143 
+R_<Type>_2 
+S_(_145 
+S_<IntProductQuotient>_49 S_[Integer]_224 S_<IntExpression>_147 S_[Identifier]_17 S_[Hexadecimal]_5 S_<Int>_116 S_<VarExpression>_199_checkTypeIsInt S_-_30 S_int_212 S_[Binary]_239 
+R_<FloatWithoutVar>_1 
+S_)_148_pushTypeInt 
+R_<Float>_4 
+R_<Statement>_2 
+R_<PlusMinus>_1 
+S_<IntProductQuotient>_49 S_[Integer]_224 S_<IntExpression>_153 S_[Identifier]_17 S_[Hexadecimal]_5 S_<Int>_116 S_<VarExpression>_199_checkTypeIsInt S_-_30 S_int_212 S_[Binary]_239 
+S_[Integer]_154_specifyArrSize 
 R_<IntExpression>_3 
-S_]_161 
-R_<Arr>_0 S_<Arr>_162 S_[_158 
-R_<Arr>_4 
+S_]_155 
+R_<ArrDecl>_3 
 R_<Float>_1 
 R_<FloatWithoutVar>_1 
-S_;_166 
-R_<Statement>_3 
+S_<Bool>_16 S_!_108 S_bool_60 S_[Identifier]_17 S_<AndResult>_160 S_<Comparison>_123 S_false_91 S_notEqual_211 S_less_223 S_<VarExpression>_40_checkTypeIsBool S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
+S_{_161_enteringBlock 
+R_<Expression>_3 S_||_180 
+R_<Statements>_0 S_<Statements>_162 S_read_72 S_string_126_pushTypeString S_bool_95_pushTypeBool S_[Identifier]_174 S_while_32 S_float_142_pushTypeFloat S_int_77_pushTypeInt S_print_54 S_<Statement>_225 S_<Type>_102 S_char_111_pushTypeChar S_if_8 S_return_240 
+S_}_163_exitBlock 
+R_<Else>_4 
+R_<FloatProductQuotient>_1 S_%_191 S_<MulDiv>_82 S_*_165 S_/_173 
 R_<MulDiv>_1 
-S_<Bool>_48 S_!_113 S_bool_63 S_[Identifier]_49 S_<AndResult>_222 S_<Comparison>_125 S_false_96 S_notEqual_217 S_less_231 S_<VarExpression>_50 S_<BoolExpression>_169 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
+S_<Float>_164 S_[Integer]_170_pushTypeInt S_[Identifier]_17 S_[Hexadecimal]_196_pushTypeInt S_<VarExpression>_117_checkTypeIsIntOrFloat S_float_132 S_-_207 S_int_144 S_<FloatProductQuotient>_167_pushTypeIntOrFloatFrom2 S_[FloatPointNumber]_156_pushTypeFloat S_[Binary]_182_pushTypeInt 
+R_<Expression>_3 S_<PlusMinus>_65 S_+_141 S_-_150 
+S_<Bool>_16 S_!_108 S_bool_60 S_[Identifier]_17 S_<AndResult>_206 S_<Comparison>_123 S_false_91 S_notEqual_211 S_less_223 S_<VarExpression>_40_checkTypeIsBool S_<BoolExpression>_169_pushTypeBool S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
 R_<Expression>_5 
-R_<Expression>_1 S_%_195 S_<PlusMinus>_100 S_<MulDiv>_179 S_*_167 S_+_142 S_-_156 S_/_178 
 R_<Float>_1 
-S_<Bool>_48 S_!_113 S_bool_63 S_[Identifier]_49 S_<AndResult>_175 S_<Comparison>_125 S_false_96 S_notEqual_217 S_less_231 S_<VarExpression>_50 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
-S_<Float>_174 S_[Integer]_171 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_[FloatPointNumber]_163 S_[Binary]_188 
+S_<Float>_172 S_[Integer]_170_pushTypeInt S_[Identifier]_17 S_[Hexadecimal]_196_pushTypeInt S_<VarExpression>_117_checkTypeIsIntOrFloat S_float_132 S_-_207 S_int_144 S_[FloatPointNumber]_156_pushTypeFloat S_[Binary]_182_pushTypeInt 
 R_<FloatWithoutVar>_2 
-R_<Expression>_3 S_||_185 
-R_<Statement>_2 
-R_<FloatProductQuotient>_1 S_%_195 S_<MulDiv>_86 S_*_167 S_/_178 
 R_<MulDiv>_1 
-S_<Float>_177 S_[Integer]_171 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_<FloatProductQuotient>_183 S_[Binary]_188 S_[FloatPointNumber]_163 
-S_<IntProductQuotient>_181 S_[Integer]_232 S_[Identifier]_49 S_[Hexadecimal]_24 S_<Int>_133 S_<VarExpression>_203 S_-_40 S_int_218 S_[Binary]_6 
+R_<Arr>_0 S_<Arr>_119 S_(_86_findFunc S_[_185_pushArr 
+S_<IntProductQuotient>_177 S_[Integer]_224 S_[Identifier]_17 S_[Hexadecimal]_5 S_<Int>_116 S_<VarExpression>_199_checkTypeIsInt S_-_30 S_int_212 S_[Binary]_239 
+S_[Identifier]_178_addArgument 
 R_<IntProductQuotient>_3 
-S_[Identifier]_184 
-R_<Expression>_3 S_<PlusMinus>_69 S_+_142 S_-_156 
-R_<CommaArgs>_0 S_,_206 S_<CommaArgs>_186 
-S_<Bool>_48 S_!_113 S_bool_63 S_[Identifier]_49 S_<AndResult>_222 S_<Comparison>_125 S_false_96 S_notEqual_217 S_less_231 S_<VarExpression>_50 S_<BoolExpression>_187 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
+R_<CommaArgs>_0 S_,_200 S_<CommaArgs>_179 
 R_<Args>_3 
+S_<Bool>_16 S_!_108 S_bool_60 S_[Identifier]_17 S_<AndResult>_206 S_<Comparison>_123 S_false_91 S_notEqual_211 S_less_223 S_<VarExpression>_40_checkTypeIsBool S_<BoolExpression>_181_pushTypeBool S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
 R_<Expression>_5 
 R_<Float>_1 
-S_(_190 
-S_<Bool>_48 S_!_113 S_bool_63 S_[Identifier]_49 S_<AndResult>_222 S_<Comparison>_125 S_false_96 S_notEqual_217 S_less_231 S_<VarExpression>_50 S_<BoolExpression>_192 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
-S_read_88 S_string_128 S_bool_101 S_[Identifier]_233 S_while_57 S_float_143 S_int_80 S_<Statement>_193 S_print_72 S_<Type>_234 S_char_118 S_{_27 S_if_42 S_return_85 
-S_)_194 
-R_<Else>_2 
+S_(_184 
+S_<Bool>_16 S_!_108 S_bool_60 S_[Identifier]_17 S_<AndResult>_206 S_<Comparison>_123 S_false_91 S_notEqual_211 S_less_223 S_<VarExpression>_40_checkTypeIsBool S_<BoolExpression>_187 S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
+S_<IntProductQuotient>_49 S_[Integer]_224 S_<IntExpression>_186 S_[Identifier]_17 S_[Hexadecimal]_5 S_<Int>_116 S_<VarExpression>_199_checkTypeIsInt S_-_30 S_int_212 S_[Binary]_239 
+S_]_188 
+S_)_189 
+R_<Arr>_3 
 R_<BoolWithoutVar>_4 
+R_<StringExpression>_1 S_._93 
 R_<MulDiv>_1 
-R_<Expression>_1 S_||_205 S_&&_172 S_%_195 S_<PlusMinus>_116 S_<MulDiv>_204 S_*_167 S_+_142 S_-_156 S_._31 S_/_178 
-S_<Bool>_48 S_!_113 S_bool_63 S_[Identifier]_49 S_<AndResult>_222 S_<Comparison>_125 S_false_96 S_notEqual_217 S_less_231 S_<VarExpression>_50 S_<BoolExpression>_198 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
+S_<Float>_164 S_[Integer]_170_pushTypeInt S_[Identifier]_17 S_[Hexadecimal]_196_pushTypeInt S_<VarExpression>_117_checkTypeIsIntOrFloat S_float_132 S_-_207 S_int_144 S_<FloatProductQuotient>_195_pushTypeIntOrFloatFrom2 S_[FloatPointNumber]_156_pushTypeFloat S_[Binary]_182_pushTypeInt 
+S_<Bool>_16 S_!_108 S_bool_60 S_[Identifier]_17 S_<AndResult>_206 S_<Comparison>_123 S_false_91 S_notEqual_211 S_less_223 S_<VarExpression>_40_checkTypeIsBool S_<BoolExpression>_194_pushTypeBool S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
 R_<Expression>_3 
+R_<Expression>_3 S_<PlusMinus>_79 S_+_141 S_-_150 
 R_<Float>_1 
 R_<BoolWithoutVar>_1 
-R_<StringExpression>_1 S_._98 
 R_<Comparison>_1 
 R_<Int>_1 
-S_<Float>_177 S_[Integer]_171 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_<FloatProductQuotient>_208 S_[Binary]_188 S_[FloatPointNumber]_163 
-S_<Bool>_48 S_!_113 S_bool_63 S_[Identifier]_49 S_<AndResult>_222 S_<Comparison>_125 S_false_96 S_notEqual_217 S_less_231 S_<VarExpression>_50 S_<BoolExpression>_207 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
-S_<Type>_209 S_bool_101 S_string_128 S_char_118 S_float_143 S_int_80 
+S_<Type>_202 S_bool_95_pushTypeBool S_string_126_pushTypeString S_char_111_pushTypeChar S_float_142_pushTypeFloat S_int_77_pushTypeInt 
+S_<Bool>_16 S_!_108 S_bool_60 S_[Identifier]_17 S_<AndResult>_206 S_<Comparison>_123 S_false_91 S_notEqual_211 S_less_223 S_<VarExpression>_40_checkTypeIsBool S_<BoolExpression>_203_pushTypeBool S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
+S_[Identifier]_204_addArgument 
 R_<Expression>_3 
-R_<Expression>_3 S_<PlusMinus>_83 S_+_142 S_-_156 
-S_[Identifier]_210 
-R_<CommaArgs>_0 S_,_206 S_<CommaArgs>_211 
+R_<CommaArgs>_0 S_,_200 S_<CommaArgs>_205 
 R_<CommaArgs>_4 
-S_<Float>_213 S_[Integer]_171 S_[Identifier]_49 S_[Hexadecimal]_199 S_<VarExpression>_121 S_float_134 S_-_212 S_int_145 S_[FloatPointNumber]_163 S_[Binary]_188 
+R_<BoolExpression>_1 S_||_216 
+S_<Float>_208 S_[Integer]_170_pushTypeInt S_[Identifier]_17 S_[Hexadecimal]_196_pushTypeInt S_<VarExpression>_117_checkTypeIsIntOrFloat S_float_132 S_-_207 S_int_144 S_[FloatPointNumber]_156_pushTypeFloat S_[Binary]_182_pushTypeInt 
 R_<Float>_2 
 R_<BoolWithoutVar>_1 
-S_[EndOfInput]_216 
-R_<Goal>_2 
+R_<StringExpression>_1 S_._110 
 R_<Comparison>_1 
-S_(_219 
-S_<IntProductQuotient>_71 S_[Integer]_232 S_<IntExpression>_220 S_[Identifier]_49 S_[Hexadecimal]_24 S_<Int>_133 S_<VarExpression>_203 S_-_40 S_int_218 S_[Binary]_6 
-S_)_221 
+S_(_213 
+S_<IntProductQuotient>_49 S_[Integer]_224 S_<IntExpression>_214 S_[Identifier]_17 S_[Hexadecimal]_5 S_<Int>_116 S_<VarExpression>_199_checkTypeIsInt S_-_30 S_int_212 S_[Binary]_239 
+S_)_215 
 R_<Int>_4 
-R_<BoolExpression>_1 S_||_223 
-S_<Bool>_48 S_!_113 S_bool_63 S_[Identifier]_49 S_<AndResult>_222 S_<Comparison>_125 S_false_96 S_notEqual_217 S_less_231 S_<VarExpression>_50 S_<BoolExpression>_227 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
-S_<Bool>_226 S_!_113 S_bool_63 S_[Identifier]_49 S_<Comparison>_125 S_false_96 S_notEqual_217 S_<VarExpression>_50 S_less_231 S_equal_202 S_true_77 S_greaterEqual_39 S_lessEqual_23 S_greater_5 
+S_<Bool>_16 S_!_108 S_bool_60 S_[Identifier]_17 S_<AndResult>_206 S_<Comparison>_123 S_false_91 S_notEqual_211 S_less_223 S_<VarExpression>_40_checkTypeIsBool S_<BoolExpression>_220 S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
+S_<Bool>_219 S_!_108 S_bool_60 S_[Identifier]_17 S_<Comparison>_123 S_false_91 S_notEqual_211 S_<VarExpression>_40_checkTypeIsBool S_less_223 S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
 R_<Expression>_1 
 R_<BoolWithoutVar>_2 
 R_<BoolExpression>_3 
-R_<Funcs>_0 S_void_97 S_<Type>_52 S_string_128 S_bool_101 S_<Funcs>_229 S_<FuncType>_12 S_char_118 S_<Func>_228 S_float_143 S_int_80 
-R_<Funcs>_2 
-R_<StringExpression>_1 S_._115 
+S_[EndOfInput]_222 
+R_<Goal>_2 
 R_<Comparison>_1 
 R_<Int>_1 
-R_<Arr>_0 S_<Arr>_152 S_(_108 S_[_158 
-S_[Identifier]_235 
-S_;_123 S_=_139 
-R_<Statements>_0 S_<Statements>_237 S_read_88 S_string_128 S_bool_101 S_[Identifier]_233 S_while_57 S_float_143 S_int_80 S_print_72 S_<Statement>_236 S_<Type>_234 S_char_118 S_{_27 S_if_42 S_return_85 
+R_<Statements>_0 S_<Statements>_226 S_read_72 S_string_126_pushTypeString S_bool_95_pushTypeBool S_[Identifier]_174 S_while_32 S_float_142_pushTypeFloat S_int_77_pushTypeInt S_print_54 S_<Statement>_225 S_<Type>_102 S_char_111_pushTypeChar S_if_8 S_return_240 
 R_<Statements>_2 
-S_(_239 
-S_bool_189 S_[Char]_225 S_<Comparison>_238 S_<Expression>_241 S_<VarExpression>_196 S_[String]_64 S_float_87 S_<FloatWithoutVar>_170 S_[Hexadecimal]_164 S_greater_5 S_!_224 S_read_240 S_[Identifier]_49 S_false_214 S_notEqual_217 S_less_231 S_-_173 S_int_105 S_[Binary]_147 S_equal_202 S_[Integer]_136 S_true_200 S_greaterEqual_39 S_lessEqual_23 S_<BoolWithoutVar>_104 S_[FloatPointNumber]_122 
-S_(_242 
-S_,_1 
-S_)_2 
+S_(_228 
+S_bool_183 S_[Char]_218_pushTypeChar S_<Comparison>_227 S_<Expression>_230 S_<VarExpression>_92 S_[String]_39_pushTypeString S_float_81 S_<FloatWithoutVar>_131 S_[Hexadecimal]_157_pushTypeInt S_greater_238 S_!_217 S_read_229 S_[Identifier]_17 S_false_209 S_notEqual_211 S_less_223 S_-_171 S_int_100 S_[Binary]_146_pushTypeInt S_equal_198 S_[Integer]_134_pushTypeInt S_true_197 S_greaterEqual_29 S_lessEqual_4 S_<BoolWithoutVar>_47_pushTypeBool S_[FloatPointNumber]_118_pushTypeFloat 
+S_(_231 
+S_,_233 
+S_)_234_pushTypeChar 
+R_<Funcs>_0 S_<Type>_19_addFuncType S_void_94_addFuncTypeVoid S_string_126_pushTypeString S_bool_95_pushTypeBool S_<Funcs>_235 S_char_111_pushTypeChar S_<Func>_232 S_float_142_pushTypeFloat S_int_77_pushTypeInt 
+S_bool_183 S_[Char]_218_pushTypeChar S_<Comparison>_227 S_<Expression>_236 S_<VarExpression>_92 S_[String]_39_pushTypeString S_float_81 S_<FloatWithoutVar>_131 S_[Hexadecimal]_157_pushTypeInt S_greater_238 S_!_217 S_read_229 S_[Identifier]_17 S_false_209 S_notEqual_211 S_less_223 S_-_171 S_int_100 S_[Binary]_146_pushTypeInt S_equal_198 S_[Integer]_134_pushTypeInt S_true_197 S_greaterEqual_29 S_lessEqual_4 S_<BoolWithoutVar>_47_pushTypeBool S_[FloatPointNumber]_118_pushTypeFloat 
+R_<Expression>_3 
+R_<Funcs>_2 
+S_)_237 
+R_<BoolWithoutVar>_6 
+R_<Comparison>_1 
+R_<Int>_1 
+S_bool_183 S_[Char]_218_pushTypeChar S_<Comparison>_227 S_<Expression>_139 S_<VarExpression>_92 S_[String]_39_pushTypeString S_float_81 S_<FloatWithoutVar>_131 S_[Hexadecimal]_157_pushTypeInt S_greater_238 S_!_217 S_read_229 S_[Identifier]_17 S_false_209 S_notEqual_211 S_less_223 S_-_171 S_int_100 S_[Binary]_146_pushTypeInt S_equal_198 S_[Integer]_134_pushTypeInt S_true_197 S_greaterEqual_29 S_;_149_checkFuncIsVoid S_lessEqual_4 S_<BoolWithoutVar>_47_pushTypeBool S_[FloatPointNumber]_118_pushTypeFloat 
+S_<Bool>_16 S_!_108 S_bool_60 S_[Identifier]_17 S_<AndResult>_243 S_<Comparison>_123 S_false_91 S_notEqual_211 S_less_223 S_<VarExpression>_40_checkTypeIsBool S_equal_198 S_true_76 S_greaterEqual_29 S_lessEqual_4 S_greater_238 
+R_<Expressions>_0 S_bool_183 S_[Char]_218_pushTypeChar S_<Comparison>_227 S_<Expression>_6_addTypeToCalledFunc S_<VarExpression>_92 S_[String]_39_pushTypeString S_float_81 S_<FloatWithoutVar>_131 S_[Hexadecimal]_157_pushTypeInt S_greater_238 S_!_217 S_read_229 S_[Identifier]_17 S_false_209 S_notEqual_211 S_less_223 S_-_171 S_int_100 S_[Binary]_146_pushTypeInt S_equal_198 S_[Integer]_134_pushTypeInt S_true_197 S_greaterEqual_29 S_lessEqual_4 S_<Expressions>_245 S_<BoolWithoutVar>_47 S_[FloatPointNumber]_118_pushTypeFloat 
+R_<AndResult>_3 
+S_[Identifier]_17 S_<StringExpression>_1_pushTypeString S_[String]_190 S_<VarExpression>_210_checkTypeIsString 
+S_)_2_checkParameters 

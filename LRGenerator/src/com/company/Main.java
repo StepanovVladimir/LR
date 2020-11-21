@@ -41,12 +41,14 @@ public class Main
                     if (transitions.containsKey(rf.ch))
                     {
                         transitions.get(rf.ch).positions.add(position);
+                        transitions.get(rf.ch).function = grammar.get(rf.ruleNumber).right.get(0).function;
                     }
                     else
                     {
                         Transition transition = new Transition();
                         transition.isTransition = true;
                         transition.positions.add(position);
+                        transition.function = grammar.get(rf.ruleNumber).right.get(0).function;
                         transitions.put(rf.ch, transition);
                     }
                 }
@@ -74,12 +76,20 @@ public class Main
             scanner.next();
             while (scanner.hasNext())
             {
-                rule.right.add(scanner.next());
+                var next = scanner.next();
+                if (!isFunction(next))
+                {
+                    rule.right.add(new Rule.Char(next));
+                }
+                else
+                {
+                    rule.right.get(rule.right.size() - 1).function = next;
+                }
             }
 
             if (grammar.isEmpty())
             {
-                rule.right.add("[EndOfInput]");
+                rule.right.add(new Rule.Char("[EndOfInput]"));
             }
 
             grammar.add(rule);
@@ -123,23 +133,25 @@ public class Main
                         position1.rule = position.rule;
                         position1.pos = position.pos + 1;
 
-                        if (transitions1.containsKey(rule.right.get(position1.pos)))
+                        if (transitions1.containsKey(rule.right.get(position1.pos).ch))
                         {
-                            transitions1.get(rule.right.get(position1.pos)).positions.add(position1);
+                            transitions1.get(rule.right.get(position1.pos).ch).positions.add(position1);
+                            transitions1.get(rule.right.get(position1.pos).ch).function = rule.right.get(position1.pos).function;
                         }
                         else
                         {
                             Transition transition1 = new Transition();
                             transition1.isTransition = true;
                             transition1.positions.add(position1);
-                            transitions1.put(rule.right.get(position1.pos), transition1);
+                            transition1.function = rule.right.get(position1.pos).function;
+                            transitions1.put(rule.right.get(position1.pos).ch, transition1);
                         }
 
-                        if (isNontermChar(rule.right.get(position1.pos)))
+                        if (isNontermChar(rule.right.get(position1.pos).ch))
                         {
                             for (int i = 1; i < grammar.size(); i++)
                             {
-                                if (grammar.get(i).left.equals(rule.right.get(position1.pos)))
+                                if (grammar.get(i).left.equals(rule.right.get(position1.pos).ch))
                                 {
                                     for (RelationFirst rf : grammar.get(i).guideSet)
                                     {
@@ -160,12 +172,14 @@ public class Main
                                             if (transitions1.containsKey(rf.ch))
                                             {
                                                 transitions1.get(rf.ch).positions.add(position2);
+                                                transitions1.get(rf.ch).function = grammar.get(rf.ruleNumber).right.get(0).function;
                                             }
                                             else
                                             {
                                                 Transition transition1 = new Transition();
                                                 transition1.isTransition = true;
                                                 transition1.positions.add(position2);
+                                                transition1.function = grammar.get(rf.ruleNumber).right.get(0).function;
                                                 transitions1.put(rf.ch, transition1);
                                             }
                                         }
@@ -213,6 +227,11 @@ public class Main
                     writer.write(transition.getKey());
                     writer.write("_");
                     writer.write(indexes.get(transition.getValue().positions).toString());
+                    if (transition.getValue().function != null)
+                    {
+                        writer.write("_");
+                        writer.write(transition.getValue().function.substring(1, transition.getValue().function.length() - 1));
+                    }
                     writer.write(" ");
                 }
                 else
@@ -239,6 +258,11 @@ public class Main
                             writer.write(transition.getKey());
                             writer.write("_");
                             writer.write(indexes.get(transition.getValue().positions).toString());
+                            if (transition.getValue().function != null)
+                            {
+                                writer.write("_");
+                                writer.write(transition.getValue().function.substring(1, transition.getValue().function.length() - 1));
+                            }
                             writer.write(" ");
                         }
                         else
@@ -268,7 +292,7 @@ public class Main
                 relationFirst.put(rule.left, new HashSet<>());
             }
 
-            String firstChar = rule.right.get(0);
+            String firstChar = rule.right.get(0).ch;
             //if (!firstChar.equals("@"))
             //{
                 RelationFirst rf = new RelationFirst();
@@ -352,5 +376,10 @@ public class Main
     private static boolean isNontermChar(String str)
     {
         return str.length() > 2 && str.charAt(0) == '<' && str.charAt(str.length() - 1) == '>';
+    }
+
+    private static boolean isFunction(String str)
+    {
+        return str.length() > 2 && str.charAt(0) == '{' && str.charAt(str.length() - 1) == '}';
     }
 }

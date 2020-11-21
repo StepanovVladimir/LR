@@ -1,113 +1,112 @@
 <Goal> - <Funcs>
 <Funcs> - <Func> <Funcs>
 <Funcs> - @
-<Func> - <FuncType> [Identifier] ( <Args> ) { <Statements> }
-<Func> - void main ( ) { <Statements> }
-<FuncType> - <Type>
-<FuncType> - void
-<Type> - int <Arr>
-<Type> - bool <Arr>
-<Type> - char <Arr>
-<Type> - string <Arr>
-<Type> - float <Arr>
-<Arr> - [ <IntExpression> ] <Arr>
-<Arr> - @
-<Args> - <Type> [Identifier] <CommaArgs>
+<Func> - <Type> {addFuncType} [Identifier] {addFunction} ( {enteringBlock} <Args> ) { <Statements> } {exitBlock}
+<Func> - void {addFuncTypeVoid} [Identifier] {addFunction} ( {enteringBlock} <Args> ) { <Statements> } {exitBlock}
+<Func> - void {addFuncTypeVoid} main {addFunction} ( {enteringBlock} ) { <Statements> } {exitBlock}
+<Type> - int {pushTypeInt} <ArrDecl>
+<Type> - bool {pushTypeBool} <ArrDecl>
+<Type> - char {pushTypeChar} <ArrDecl>
+<Type> - string {pushTypeString} <ArrDecl>
+<Type> - float {pushTypeFloat} <ArrDecl>
+<ArrDecl> - [ [Integer] {specifyArrSize} ]
+<ArrDecl> - @
+<Args> - <Type> [Identifier] {addArgument} <CommaArgs>
 <Args> - @
-<CommaArgs> - , <Type> [Identifier] <CommaArgs>
+<CommaArgs> - , <Type> [Identifier] {addArgument} <CommaArgs>
 <CommaArgs> - @
 <Statements> - <Statement> <Statements>
 <Statements> - @
-<Statement> - { <Statements> }
-<Statement> - if ( <BoolExpression> ) <Statement> <Else>
-<Statement> - while ( <BoolExpression> ) <Statement>
-<Statement> - print ( <CharExpression> ) ;
+<Statement> - if ( <BoolExpression> ) { {enteringBlock} <Statements> } {exitBlock} <Else>
+<Statement> - while ( <BoolExpression> ) { {enteringBlock} <Statements> } {exitBlock}
+<Statement> - print ( <Expression> ) {popType} ;
 <Statement> - read ( ) ;
-<Statement> - [Identifier] ( <Expressions> ) ;
-<Statement> - <Type> [Identifier] ;
-<Statement> - <Type> [Identifier] = <Expression> ;
-<Statement> - [Identifier] <Arr> = <Expression> ;
-<Statement> - return <Expression> ;
-<Statement> - return ;
-<Else> - else <Statement>
+<Statement> - [Identifier] ( {findFunc} <Expressions> ) {checkParametersWithoutPush} ;
+<Statement> - <Type> [Identifier] {addToCharsTable} ;
+<Statement> - [Identifier] <Arr> = {pushTypeOfId2} <Expression> {checkTypesAtAssign} ;
+<Statement> - return <Expression> ; {checkFuncType}
+<Statement> - return ; {checkFuncIsVoid}
+<Else> - else { {enteringBlock} <Statements> } {exitBlock}
 <Else> - @
+<Arr> - [ {pushArr} <IntExpression> ]
+<Arr> - @
 <Expression> - <VarExpression>
-<Expression> - [Char]
-<Expression> - read ( )
-<Expression> - [String] . <StringExpression>
-<Expression> - <VarExpression> . <StringExpression>
-<Expression> - [String]
-<Expression> - <FloatWithoutVar> <MulDiv> <FloatProductQuotient> <PlusMinus> <FloatExpression>
-<Expression> - <VarExpression> <MulDiv> <FloatProductQuotient> <PlusMinus> <FloatExpression>
-<Expression> - <FloatWithoutVar> <PlusMinus> <FloatExpression>
-<Expression> - <VarExpression> <PlusMinus> <FloatExpression>
-<Expression> - <FloatWithoutVar> <MulDiv> <FloatProductQuotient>
-<Expression> - <VarExpression> <MulDiv> <FloatProductQuotient>
+<Expression> - [Char] {pushTypeChar}
+<Expression> - read ( ) {pushTypeChar}
+<Expression> - [String] . <StringExpression> {pushTypeString}
+<Expression> - <VarExpression> . {checkTypeIsString} <StringExpression> {pushTypeString}
+<Expression> - [String] {pushTypeString}
+<Expression> - <FloatWithoutVar> <MulDiv> <FloatProductQuotient> {pushTypeIntOrFloatFrom2} <PlusMinus> <FloatExpression> {pushTypeIntOrFloatFrom2}
+<Expression> - <VarExpression> <MulDiv> {checkTypeIsIntOrFloat} <FloatProductQuotient> {pushTypeIntOrFloatFrom2} <PlusMinus> <FloatExpression> {pushTypeIntOrFloatFrom2}
+<Expression> - <FloatWithoutVar> <PlusMinus> <FloatExpression> {pushTypeIntOrFloatFrom2}
+<Expression> - <VarExpression> <PlusMinus> {checkTypeIsIntOrFloat} <FloatExpression> {pushTypeIntOrFloatFrom2}
+<Expression> - <FloatWithoutVar> <MulDiv> <FloatProductQuotient> {pushTypeIntOrFloatFrom2}
+<Expression> - <VarExpression> <MulDiv> {checkTypeIsIntOrFloat} <FloatProductQuotient> {pushTypeIntOrFloatFrom2}
 <Expression> - <FloatWithoutVar>
-<Expression> - <BoolWithoutVar> && <AndResult> || <BoolExpression>
-<Expression> - <VarExpression> && <AndResult> || <BoolExpression>
-<Expression> - <BoolWithoutVar> || <BoolExpression>
-<Expression> - <VarExpression> || <BoolExpression>
-<Expression> - <BoolWithoutVar> && <AndResult>
-<Expression> - <VarExpression> && <AndResult>
-<Expression> - <BoolWithoutVar>
-<Expressions> - <Expression> <CommaExpressions>
+<Expression> - <BoolWithoutVar> && <AndResult> || <BoolExpression> {pushTypeBool}
+<Expression> - <VarExpression> && {checkTypeIsBool} <AndResult> || <BoolExpression> {pushTypeBool}
+<Expression> - <BoolWithoutVar> || <BoolExpression> {pushTypeBool}
+<Expression> - <VarExpression> || {checkTypeIsBool} <BoolExpression> {pushTypeBool}
+<Expression> - <BoolWithoutVar> && <AndResult> {pushTypeBool}
+<Expression> - <VarExpression> && {checkTypeIsBool} <AndResult> {pushTypeBool}
+<Expression> - <BoolWithoutVar> {pushTypeBool}
+<Expressions> - <Expression> {addTypeToCalledFunc} <CommaExpressions>
 <Expressions> - @
-<CommaExpressions> - , <Expression> <CommaExpressions>
+<CommaExpressions> - , <Expression> {addTypeToCalledFunc} <CommaExpressions>
 <CommaExpressions> - @
-<FloatWithoutVar> - float ( <FloatExpression> )
-<FloatWithoutVar> - int ( <FloatExpression> )
-<FloatWithoutVar> - [FloatPointNumber]
-<FloatWithoutVar> - [Integer]
-<FloatWithoutVar> - [Binary]
-<FloatWithoutVar> - [Hexadecimal]
+<FloatWithoutVar> - float ( <FloatExpression> ) {pushTypeFloat}
+<FloatWithoutVar> - int ( <IntExpression> ) {pushTypeInt}
+<FloatWithoutVar> - [FloatPointNumber] {pushTypeFloat}
+<FloatWithoutVar> - [Integer] {pushTypeInt}
+<FloatWithoutVar> - [Binary] {pushTypeInt}
+<FloatWithoutVar> - [Hexadecimal] {pushTypeInt}
 <FloatWithoutVar> - - <Float>
 <BoolWithoutVar> - bool ( <BoolExpression> )
 <BoolWithoutVar> - true
 <BoolWithoutVar> - false
 <BoolWithoutVar> - ! <Bool>
 <BoolWithoutVar> - <Comparison> ( <Expression> , <Expression> )
-<VarExpression> - [Identifier] ( <Expressions> ) <Arr>
-<VarExpression> - [Identifier] <Arr>
-<CharExpression> - <VarExpression>
+<VarExpression> - [Identifier] ( {findFunc} <Expressions> ) {checkParameters} <Arr>
+<VarExpression> - [Identifier] <Arr> {pushTypeOfId1}
+<CharExpression> - <VarExpression> {checkTypeIsChar}
 <CharExpression> - [Char]
 <CharExpression> - read ( )
 <StringExpression> - [String] . <StringExpression>
-<StringExpression> - <VarExpression> . <StringExpression>
+<StringExpression> - <VarExpression> {checkTypeIsString} . <StringExpression>
 <StringExpression> - [String]
-<StringExpression> - <VarExpression>
+<StringExpression> - <VarExpression> {checkTypeIsString}
 <IntExpression> - <IntProductQuotient> <PlusMinus> <IntExpression>
 <IntExpression> - <IntProductQuotient>
 <IntProductQuotient> - <Int> <MulDiv> <IntProductQuotient>
 <IntProductQuotient> - <Int>
-<Int> - <VarExpression>
+<Int> - <VarExpression> {checkTypeIsInt}
 <Int> - int ( <IntExpression> )
 <Int> - [Integer]
 <Int> - [Binary]
 <Int> - [Hexadecimal]
 <Int> - - <Int>
-<FloatExpression> - <FloatProductQuotient> <PlusMinus> <FloatExpression>
+<FloatExpression> - <FloatProductQuotient> <PlusMinus> <FloatExpression> {pushTypeIntOrFloatFrom2}
 <FloatExpression> - <FloatProductQuotient>
-<FloatProductQuotient> - <Float> <MulDiv> <FloatProductQuotient>
+<FloatProductQuotient> - <Float> <MulDiv> <FloatProductQuotient> {pushTypeIntOrFloatFrom2}
 <FloatProductQuotient> - <Float>
-<Float> - <VarExpression>
-<Float> - float ( <FloatExpression> )
-<Float> - int ( <FloatExpression> )
-<Float> - [FloatPointNumber]
-<Float> - [Integer]
-<Float> - [Binary]
-<Float> - [Hexadecimal]
+<Float> - <VarExpression> {checkTypeIsIntOrFloat}
+<Float> - float ( <FloatExpression> ) {pushTypeFloat}
+<Float> - int ( <IntExpression> ) {pushTypeInt}
+<Float> - [FloatPointNumber] {pushTypeFloat}
+<Float> - [Integer] {pushTypeInt}
+<Float> - [Binary] {pushTypeInt}
+<Float> - [Hexadecimal] {pushTypeInt}
 <Float> - - <Float>
 <BoolExpression> - <AndResult> || <BoolExpression>
 <BoolExpression> - <AndResult>
 <AndResult> - <Bool> && <AndResult>
 <AndResult> - <Bool>
-<Bool> - <VarExpression>
+<Bool> - <VarExpression> {checkTypeIsBool}
 <Bool> - bool ( <BoolExpression> )
 <Bool> - true
 <Bool> - false
 <Bool> - ! <Bool>
-<Bool> - <Comparison> ( <Expression> , <Expression> )
+<Bool> - <Comparison> ( <Expression> , <Expression> ) {checkTypesAtComparison}
 <PlusMinus> - +
 <PlusMinus> - -
 <MulDiv> - *

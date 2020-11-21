@@ -9,8 +9,10 @@ void main()
     i[0] = 5;
     i[1] = int(i[0] + i[0]) * 2;
 
-    bool b = true;
-    bool b1 = bool(b || b) && true;
+    bool b;
+    b = true;
+    bool b1;
+    b1 = bool(b || b) && true;
 
     if (equal(i[0], 5))
     {
@@ -18,7 +20,8 @@ void main()
     }
     else
     {
-        char ch = 'a';
+        char ch;
+        ch = 'a';
         print(ch);
     }
 
