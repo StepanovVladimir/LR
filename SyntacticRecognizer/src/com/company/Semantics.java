@@ -1,5 +1,7 @@
 package com.company;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class Semantics
@@ -29,20 +31,27 @@ public class Semantics
         public Integer arrSize = null;
     }
 
-    public Semantics(Stack<String> charsStack)
+    public Semantics(Stack<String> charsStack, String fileName) throws IOException
     {
         this.charsStack = charsStack;
+        writer = new FileWriter(fileName);
     }
 
     private Stack<String> charsStack;
+    private FileWriter writer;
     private Stack<Type> typesStack = new Stack<>();
     private ArrayList<Map<String, Type>> charsTable = new ArrayList<>();
     private Map<String, ArrayList<Type>> functionsTable = new TreeMap<>();
     private ArrayList<Type> functionParameters;
     private String calledFunctionName;
     private ArrayList<Type> calledFunctionParameters;
+    private Stack<String> operations = new Stack<>();
+    private String comparison;
+    private int labelNumber = 0;
+    private Stack<Integer> labelNumbers = new Stack<>();
 
-    public void doFunction(String function) throws Exception {
+    public void doFunction(String function) throws Exception
+    {
         String id;
         Type type1;
         Type type2;
@@ -55,6 +64,54 @@ public class Semantics
 
             case "exitBlock":
                 charsTable.remove(charsTable.size() - 1);
+                writer.flush();
+                break;
+
+            case "ifLabelJZ":
+                writer.write("label" + labelNumber);
+                writer.write('\n');
+                writer.write("-jz\n");
+                labelNumbers.push(labelNumber);
+                labelNumber += 2;
+                break;
+
+            case "elseProcess":
+                writer.write("label" + (labelNumbers.peek() + 1));
+                writer.write('\n');
+                writer.write("-jmp\n");
+                writer.write("label" + labelNumbers.peek());
+                writer.write('\n');
+                writer.write("-defl\n");
+                break;
+
+            case "endElse":
+                writer.write("label" + (labelNumbers.pop() + 1));
+                writer.write('\n');
+                writer.write("-defl\n");
+                break;
+
+            case "defLabelAtWhile":
+                writer.write("label" + labelNumber);
+                writer.write('\n');
+                writer.write("-defl\n");
+                labelNumbers.push(labelNumber);
+                labelNumber += 2;
+                break;
+
+            case "whileLabelJZ":
+                writer.write("label" + (labelNumbers.peek() + 1));
+                writer.write('\n');
+                writer.write("-jz\n");
+                break;
+
+            case "endWhile":
+                int ln = labelNumbers.pop();
+                writer.write("label" + ln);
+                writer.write('\n');
+                writer.write("-jmp\n");
+                writer.write("label" + (ln + 1));
+                writer.write('\n');
+                writer.write("-defl\n");
                 break;
 
             case "pushTypeVoid":
@@ -81,8 +138,77 @@ public class Semantics
                 typesStack.push(new Type("float"));
                 break;
 
-            case "popType":
-                typesStack.pop();
+            case "pushTypeIntAndPrint":
+                typesStack.push(new Type("int"));
+                writer.write(charsStack.elementAt(charsStack.size() - 1));
+                writer.write('\n');
+                break;
+
+            case "pushTypeBoolAndOr":
+                typesStack.push(new Type("bool"));
+                writer.write("||\n");
+                break;
+
+            case "pushTypeBoolAndAnd":
+                typesStack.push(new Type("bool"));
+                writer.write("&&\n");
+                break;
+
+            case "pushTypeCharAndPrint":
+                typesStack.push(new Type("char"));
+                writer.write(charsStack.elementAt(charsStack.size() - 1));
+                writer.write('\n');
+                break;
+
+            case "pushTypeStringAndPrint":
+                typesStack.push(new Type("string"));
+                writer.write(charsStack.elementAt(charsStack.size() - 1));
+                writer.write('\n');
+                break;
+
+            case "pushTypeStringAndConcat":
+                typesStack.push(new Type("string"));
+                writer.write(".\n");
+                break;
+
+            case "pushTypeFloatAndPrint":
+                typesStack.push(new Type("float"));
+                writer.write(charsStack.elementAt(charsStack.size() - 1));
+                writer.write('\n');
+                break;
+
+            case "printConcat":
+                writer.write(".\n");
+                break;
+
+            case "printOr":
+                writer.write("||\n");
+                break;
+
+            case "printAnd":
+                writer.write("&&\n");
+                break;
+
+            case "printNot":
+                writer.write("!\n");
+                break;
+
+            case "checkIsNotArray":
+                type1 = typesStack.pop();
+                if (type1.arrSize != null)
+                {
+                    throw new Exception("Cannot print array");
+                }
+                writer.write("-print\n");
+                break;
+
+            case "checkIsReadable":
+                type1 = typesStack.pop();
+                if (type1.arrSize != null || !type1.name.equals("char") && !type1.name.equals("int") && !type1.name.equals("float"))
+                {
+                    throw new Exception("Cannot read this type");
+                }
+                writer.write("-read\n");
                 break;
 
             case "specifyArrSize":
@@ -104,6 +230,26 @@ public class Semantics
                 if (!functionsTable.containsKey(id))
                 {
                     functionsTable.put(id, functionParameters);
+                    writer.write(id);
+                    writer.write('\n');
+                    writer.write(functionParameters.get(0).name);
+                    writer.write('\n');
+                    writer.write("-funcdecl\n");
+                    writer.write("-argsdeclbeg\n");
+                }
+                else
+                {
+                    throw new Exception("Double Declaration of " + id + " function");
+                }
+                break;
+
+            case "addFunctionMain":
+                id = charsStack.elementAt(charsStack.size() - 1);
+                if (!functionsTable.containsKey(id))
+                {
+                    functionsTable.put(id, functionParameters);
+                    writer.write("-main\n");
+                    writer.write("-blbeg\n");
                 }
                 else
                 {
@@ -123,13 +269,51 @@ public class Semantics
                     throw new Exception("Double Declaration of " + id + " variable");
                 }
                 functionParameters.add(type1);
+                writer.write(id);
+                writer.write('\n');
+                writer.write(type1.name);
+                writer.write('\n');
+                if (type1.arrSize == null)
+                {
+                    writer.write("-argdecl\n");
+                }
+                else
+                {
+                    writer.write(type1.arrSize.toString());
+                    writer.write('\n');
+                    writer.write("-arrargdecl\n");
+                }
+                break;
+
+            case "enteringFunc":
+                writer.write("-argsdeclend\n");
+                writer.write("-blbeg\n");
+                break;
+
+            case "exitFunc":
+                writer.write("-blend\n");
                 break;
 
             case "addToCharsTable":
                 id = charsStack.elementAt(charsStack.size() - 1);
                 if (!charsTable.get(charsTable.size() - 1).containsKey(id))
                 {
-                    charsTable.get(charsTable.size() - 1).put(id, typesStack.pop());
+                    type1 = typesStack.pop();
+                    charsTable.get(charsTable.size() - 1).put(id, type1);
+                    writer.write(id);
+                    writer.write('\n');
+                    writer.write(type1.name);
+                    writer.write('\n');
+                    if (type1.arrSize == null)
+                    {
+                        writer.write("-vardecl\n");
+                    }
+                    else
+                    {
+                        writer.write(type1.arrSize.toString());
+                        writer.write('\n');
+                        writer.write("-arrdecl\n");
+                    }
                 }
                 else
                 {
@@ -143,6 +327,7 @@ public class Semantics
                 {
                     calledFunctionName = id;
                     calledFunctionParameters = new ArrayList<>();
+                    writer.write("-argsbeg\n");
                 }
                 else
                 {
@@ -151,14 +336,16 @@ public class Semantics
                 break;
 
             case "addTypeToCalledFunc":
-                 calledFunctionParameters.add(typesStack.pop());
-                 break;
+                calledFunctionParameters.add(typesStack.pop());
+                writer.write("-arg\n");
+                break;
 
             case "checkParameters":
                 params = functionsTable.get(calledFunctionName);
                 if (calledFunctionParameters.equals(params.subList(1, params.size())))
                 {
                     typesStack.push(params.get(0));
+                    writer.write("-argsend\n");
                 }
                 else
                 {
@@ -172,6 +359,7 @@ public class Semantics
                 {
                     throw new Exception("Invalid params to " + calledFunctionName + "function");
                 }
+                writer.write("-argsend\n");
                 break;
 
             case "checkFuncType":
@@ -179,6 +367,7 @@ public class Semantics
                 {
                     throw new Exception("Returned parameter not equals to function type");
                 }
+                writer.write("-retval\n");
                 break;
 
             case "checkFuncIsVoid":
@@ -186,6 +375,17 @@ public class Semantics
                 {
                     throw new Exception("Function not have returned value");
                 }
+                writer.write("-return\n");
+                writer.write(";\n");
+                break;
+
+            case "endStmt":
+                writer.write(";\n");
+                break;
+
+            case "print":
+                writer.write(charsStack.elementAt(charsStack.size() - 1));
+                writer.write('\n');
                 break;
 
             case "pushTypeOfId1":
@@ -254,15 +454,29 @@ public class Semantics
 
             case "pushArr":
                 typesStack.push(new Type("arr"));
+                writer.write("-subs\n");
+                break;
+
+            case "saveOperation":
+                operations.push(charsStack.elementAt(charsStack.size() - 1));
+                break;
+
+            case "saveComparison":
+                comparison = charsStack.elementAt(charsStack.size() - 1);
+                break;
+
+            case "printUnaryMinus":
+                writer.write("~\n");
                 break;
 
             case "checkTypesAtAssign":
-                type1 = typesStack.pop();
                 type2 = typesStack.pop();
+                type1 = typesStack.pop();
                 if (type1.arrSize != null || type2.arrSize != null || !type1.name.equals(type2.name) && !type1.name.equals("float") && !type2.name.equals("int"))
                 {
                     throw new Exception("Invalid types at assign");
                 }
+                writer.write("=\n");
                 break;
 
             case "checkTypeIsString":
@@ -291,6 +505,8 @@ public class Semantics
                 {
                     typesStack.push(new Type("int"));
                 }
+                writer.write(operations.pop());
+                writer.write('\n');
                 break;
 
             case "checkTypeIsBool":
@@ -325,6 +541,9 @@ public class Semantics
                 {
                     throw new Exception("Invalid types at comparison");
                 }
+
+                writer.write(comparison);
+                writer.write('\n');
                 break;
         }
     }

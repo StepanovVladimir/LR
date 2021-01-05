@@ -23,7 +23,7 @@ public class Main
 
             Set<String> possibleChs = new TreeSet<>();
 
-            Semantics semantics = new Semantics(charsStack);
+            Semantics semantics = new Semantics(charsStack, args[2]);
             while (!input.isEmpty())
             {
                 Row row = table.get(statesStack.peek());
@@ -114,7 +114,7 @@ public class Main
 
     private static ArrayList<Row> readTable(String fileName) throws IOException
     {
-        var table = new ArrayList<Row>();
+        ArrayList<Row> table = new ArrayList<>();
         for (String line : Files.lines(Paths.get(fileName), StandardCharsets.UTF_8)
                 .collect(Collectors.toList()))
         {

@@ -1,0 +1,39 @@
+void main()
+{
+    int[10] nums;
+
+    int i;
+    i = 0;
+    while (<(i, 10))
+    {
+        read(nums[i]);
+        i = i + 1;
+    }
+
+    bool flag;
+    flag = false;
+    while (!flag)
+    {
+        flag = true;
+        i = 0;
+        while (<(i, 9))
+        {
+            if (>(nums[i], nums[i + 1]))
+            {
+                flag = false;
+                int b;
+                b = nums[i];
+                nums[i] = nums[i + 1];
+                nums[i + 1] = b;
+            }
+            i = i + 1;
+        }
+    }
+
+    i = 0;
+    while (<(i, 10))
+    {
+        print(nums[i]);
+        i = i + 1;
+    }
+}

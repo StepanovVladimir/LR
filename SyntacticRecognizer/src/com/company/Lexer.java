@@ -45,12 +45,6 @@ public class Lexer {
         this.keywords.put("false", TokenType.False);
         this.keywords.put("main", TokenType.Main);
         this.keywords.put("char", TokenType.KeywordChar);
-        this.keywords.put("equal", TokenType.KeywordEqual);
-        this.keywords.put("notEqual", TokenType.KeywordNotEqual);
-        this.keywords.put("less", TokenType.KeywordLess);
-        this.keywords.put("greater", TokenType.KeywordGreater);
-        this.keywords.put("lessEqual", TokenType.KeywordLessEqual);
-        this.keywords.put("greaterEqual", TokenType.KeywordGreaterEqual);
     }
 
     public Token getToken() {
